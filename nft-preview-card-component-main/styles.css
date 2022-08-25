@@ -58,21 +58,17 @@ hr {
     border-radius: 0.5rem;
     margin-bottom: 1.25rem;
     position: relative;
-}
-
-.image-container:hover::before {
-    content: '';
-    position: absolute;
-    inset: 0;
     background-color: var(--clr-primary-600);
-    opacity: 0.4;
-    border-radius: inherit;
 }
 
 .image-container:hover>.view-icon,
 .image-container {
     cursor: pointer;
     visibility: visible;
+}
+
+.nft-image:hover {
+    opacity: 0.5;
 }
 
 .view-icon {
