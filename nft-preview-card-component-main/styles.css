@@ -1,0 +1,147 @@
+:root {
+    --clr-primary-300: hsl(215, 51%, 70%);
+    --clr-primary-600: hsl(178, 100%, 50%);
+
+    --clr-neutral-100: hsl(0, 0%, 100%);
+    --clr-neutral-600: hsl(215, 32%, 27%);
+    --clr-neutral-700: hsl(216, 50%, 16%);
+    --clr-neutral-800: hsl(217, 54%, 11%);
+    font-family: 'Outfit', sans-serif;
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 98vh;
+    margin: 0;
+    background-color: var(--clr-neutral-800);
+}
+
+img {
+    max-width: 100%;
+    display: block;
+    border-radius: inherit;
+}
+
+h2,
+p {
+    margin: 0;
+}
+
+p {
+    font-weight: 300;
+    color: var(--clr-primary-300);
+}
+
+hr {
+    color: var(--clr-neutral-600);
+    margin: 0 0 1rem 0;
+}
+
+.nft-card {
+    width: 22.5rem;
+    padding: 1.5rem;
+    border-radius: 1rem;
+    background-color: var(--clr-neutral-700);
+}
+
+.image-container {
+    border-radius: 0.5rem;
+    margin-bottom: 1.25rem;
+    position: relative;
+}
+
+.image-container:hover::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-color: var(--clr-primary-600);
+    opacity: 0.4;
+    border-radius: inherit;
+}
+
+.image-container:hover>.view-icon,
+.image-container {
+    cursor: pointer;
+    visibility: visible;
+}
+
+.view-icon {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    visibility: hidden;
+}
+
+.nft-name {
+    color: var(--clr-neutral-100);
+    font-size: 1.3rem;
+    font-weight: 600;
+    margin-bottom: 1.25rem;
+    display: inline-block;
+    /* so the cursor only appears when hovering over the text */
+}
+
+.nft-name:hover {
+    color: var(--clr-primary-600);
+    cursor: pointer;
+}
+
+.nft-desc {
+    font-size: 1.125rem;
+    margin-bottom: 1.25rem;
+}
+
+.nft-info {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 1.25rem;
+}
+
+.price-container {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.price {
+    color: var(--clr-primary-600);
+    font-weight: 600;
+}
+
+.time-container {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.author {
+    display: flex;
+    height: 2rem;
+    align-items: center;
+    gap: 1rem;
+}
+
+.author-avatar {
+    height: 100%;
+    border: 1px solid var(--clr-neutral-100);
+    border-radius: 50%;
+}
+
+.author-name {
+    color: var(--clr-neutral-100);
+    font-weight: 400;
+}
+
+.author-name:hover {
+    color: var(--clr-primary-600);
+    cursor: pointer;
+}
