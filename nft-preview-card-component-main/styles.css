@@ -6,6 +6,7 @@
     --clr-neutral-600: hsl(215, 32%, 27%);
     --clr-neutral-700: hsl(216, 50%, 16%);
     --clr-neutral-800: hsl(217, 54%, 11%);
+    --clr-neutral-900: hsla(218, 44%, 5%, 0.5);
     font-family: 'Outfit', sans-serif;
 }
 
@@ -50,6 +51,7 @@ hr {
     padding: 1.5rem;
     border-radius: 1rem;
     background-color: var(--clr-neutral-700);
+    box-shadow: 0 1.5rem 1rem var(--clr-neutral-900);
 }
 
 .image-container {
