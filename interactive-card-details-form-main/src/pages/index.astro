@@ -1,0 +1,11 @@
+---
+import Card from "../components/Card";
+import Form from "../components/Form";
+import Layout from "../layouts/Layout.astro";
+import "../styles.css";
+---
+
+<Layout>
+  <Form client:load slot="form" />
+  <Card client:load slot="card" />
+</Layout>

@@ -1,0 +1,7 @@
+.cards {
+  display: grid;
+  letter-spacing: 2px;
+}
+
+@media screen and (min-width: 70em) {
+}

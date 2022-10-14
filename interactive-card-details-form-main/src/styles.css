@@ -1,0 +1,71 @@
+:root {
+  --clr-primary-400: hsl(0, 100%, 66%); /* Red */
+  --gradient-primary: linear-gradient(
+    to right,
+    hsl(249, 99%, 64%),
+    hsl(278, 94%, 30%)
+  ); /* input gradient */
+
+  --clr-neutral-100: hsl(0, 0%, 100%); /* White */
+  --clr-neutral-400: hsl(270, 3%, 87%); /* Light grayish violet */
+  --clr-neutral-600: hsl(279, 6%, 55%); /* Dark grayish violet */
+  --clr-neutral-800: hsl(278, 68%, 11%); /* Very dark violet */
+}
+
+body {
+  box-sizing: border-box;
+  margin: 0;
+  background-image: url("/bg-main-mobile.png");
+  background-repeat: no-repeat;
+  background-size: 100% 33vh;
+  font-family: "Space Grotesk", sans-serif;
+}
+
+h1,
+p {
+  margin: 0;
+  padding: 0;
+  color: var(--clr-neutral-100);
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+@media screen and (min-width: 75em) {
+  body {
+    background-image: url("/bg-main-desktop.png");
+    background-size: 33vw 100vh;
+  }
+}
+
+.container {
+  padding-inline: 5%;
+}
+
+@media screen and (min-width: 70em) {
+  .container {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    /* padding-inline: 10%; */
+    column-gap: 5rem;
+    min-height: 100vh;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .form {
+    max-width: 25rem;
+  }
+}
+
+@media screen and (min-width: 90em) {
+  .container {
+    padding-inline: 10%;
+  }
+
+  .form {
+    max-width: 65%;
+  }
+}

@@ -1,0 +1,19 @@
+.card {
+  position: relative;
+  justify-self: right;
+  max-width: 85%;
+  top: -57%;
+}
+
+.cvvClass {
+  position: absolute;
+  bottom: 46.5%;
+  right: 12%;
+  font-size: clamp(0.5rem, 2.5vw, 1rem);
+}
+
+@media screen and (min-width: 70em) {
+  .card {
+    top: 3%;
+  }
+}

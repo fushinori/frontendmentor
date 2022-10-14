@@ -1,0 +1,15 @@
+.btn {
+  font-family: inherit;
+  font-size: 1.25rem;
+  padding: 1rem;
+  margin-top: 1.5rem;
+  color: var(--clr-neutral-100);
+  background-color: var(--clr-neutral-800);
+  border: none;
+  border-radius: 0.5rem;
+  grid-column: 1 / -1;
+}
+
+.btn:hover {
+  cursor: pointer;
+}

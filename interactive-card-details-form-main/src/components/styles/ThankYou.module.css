@@ -1,0 +1,28 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 3rem;
+}
+
+.container p {
+  color: var(--clr-neutral-600);
+}
+
+.container img {
+  max-width: 30%;
+}
+
+.container h2 {
+  color: var(--clr-neutral-800);
+  text-transform: uppercase;
+  letter-spacing: 0.2rem;
+  font-weight: 500;
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+}
+
+.container button {
+  margin-top: 3rem;
+  width: min(100%, 35rem);
+}

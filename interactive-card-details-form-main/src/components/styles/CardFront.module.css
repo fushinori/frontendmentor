@@ -1,0 +1,45 @@
+.card {
+  position: relative;
+  justify-self: left;
+  max-width: 85%;
+  bottom: -100%;
+  z-index: 1;
+}
+
+.cardNumber,
+.cardLogo,
+.cardName,
+.expirationDate {
+  position: absolute;
+}
+
+.cardLogo {
+  top: 10%;
+  left: 7.5%;
+  max-width: 20%;
+}
+
+.cardNumber {
+  bottom: 35%;
+  left: 7.5%;
+  /* font-size: clamp(0.7rem, 4.8vw, 1.8rem); */
+  font-size: clamp(0.7rem, 4.4vw, 1.6rem);
+}
+
+.cardName {
+  bottom: 15%;
+  left: 7.5%;
+  font-size: clamp(0.5rem, 2.5vw, 1rem);
+}
+
+.expirationDate {
+  bottom: 15%;
+  right: 7.5%;
+  font-size: clamp(0.5rem, 2.5vw, 1rem);
+}
+
+@media screen and (min-width: 70em) {
+  .card {
+    bottom: 10%;
+  }
+}
