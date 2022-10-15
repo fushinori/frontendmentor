@@ -6,10 +6,11 @@ const { container } = Styles;
 
 export default function ThankYou() {
   const $isSubmitted = useStore(isSubmitted);
+
   function handleClick() {
     isSubmitted.set(!$isSubmitted);
-    console.log($isSubmitted);
   }
+
   return (
     <div className={container}>
       <img src="/icon-complete.svg" alt="" />
