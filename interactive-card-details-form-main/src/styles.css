@@ -21,11 +21,23 @@ body {
   font-family: "Space Grotesk", sans-serif;
 }
 
-h1,
 p {
   margin: 0;
   padding: 0;
   color: var(--clr-neutral-100);
+}
+
+/* https://piccalil.li/quick-tip/visually-hidden/ */
+h1 {
+  border: 0;
+  clip: rect(0 0 0 0);
+  height: auto;
+  margin: 0;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  width: 1px;
+  white-space: nowrap;
 }
 
 img {
