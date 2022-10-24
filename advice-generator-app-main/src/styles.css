@@ -1,0 +1,33 @@
+:root {
+  --clr-primary-300: hsl(193, 38%, 86%); /* Light Cyan */
+  --clr-primary-500: hsl(150, 100%, 66%); /* Neon Green */
+
+  --clr-neutral-300: hsl(217, 19%, 38%); /* Grayish Blue */
+  --clr-neutral-500: hsl(217, 19%, 24%); /* Dark Grayish Blue */
+  --clr-neutral-700: hsl(218, 23%, 16%); /* Dark Blue */
+}
+
+body {
+  margin: 0;
+  box-sizing: border-box;
+  min-height: 100vh;
+  display: grid;
+  place-items: center;
+  background-color: var(--clr-neutral-700);
+  font-family: "Manrope", sans-serif;
+}
+
+main {
+  padding-inline: 5%;
+}
+
+h1,
+p {
+  margin: 0;
+  padding: 0;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
