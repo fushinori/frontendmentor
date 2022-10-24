@@ -59,12 +59,12 @@ export default function AdviceCard() {
     <div className={adviceCard}>
       <h1>Advice #{advice.id}</h1>
       <p>"{advice.advice}"</p>
-      <picture>
+      <picture aria-hidden="true">
         <source
           srcSet="/pattern-divider-desktop.svg"
           media="(min-width: 40em)"
         />
-        <img src="/pattern-divider-mobile.svg" aria-hidden="true" alt="" />
+        <img src="/pattern-divider-mobile.svg" alt="" />
       </picture>
       <button onClick={handleClick}>
         <img src="/icon-dice.svg" alt="Generate new advice" />
