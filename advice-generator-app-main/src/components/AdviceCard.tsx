@@ -67,7 +67,7 @@ export default function AdviceCard() {
         <img src="/pattern-divider-mobile.svg" aria-hidden="true" alt="" />
       </picture>
       <button onClick={handleClick}>
-        <img src="/icon-dice.svg" alt="" />
+        <img src="/icon-dice.svg" alt="Generate new advice" />
       </button>
     </div>
   );
