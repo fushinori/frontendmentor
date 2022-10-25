@@ -1,0 +1,13 @@
+---
+interface Props {
+  links: string[];
+}
+
+const { links } = Astro.props as Props;
+---
+
+<nav class="hidden md:block">
+  <ul class="flex gap-8">
+    {links.map((link) => <li>{link}</li>)}
+  </ul>
+</nav>

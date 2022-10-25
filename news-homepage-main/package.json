@@ -1,0 +1,34 @@
+{
+  "name": "news-homepage",
+  "type": "module",
+  "version": "0.0.1",
+  "private": true,
+  "scripts": {
+    "dev": "astro dev",
+    "start": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "astro": "astro"
+  },
+  "dependencies": {
+    "@astrojs/react": "^1.2.1",
+    "@astrojs/tailwind": "^2.1.1",
+    "@nanostores/react": "^0.4.0",
+    "@types/react": "^18.0.22",
+    "@types/react-dom": "^18.0.7",
+    "astro": "^1.4.5",
+    "nanostores": "^0.7.0",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "tailwindcss": "^3.2.1"
+  },
+  "devDependencies": {
+    "@typescript-eslint/eslint-plugin": "^5.39.0",
+    "@typescript-eslint/parser": "^5.39.0",
+    "eslint": "^8.25.0",
+    "eslint-config-prettier": "^8.5.0",
+    "eslint-plugin-astro": "^0.20.0",
+    "prettier": "^2.7.1",
+    "prettier-plugin-astro": "^0.5.5"
+  }
+}

@@ -1,0 +1,18 @@
+---
+import MenuButton from "./MenuButton";
+import NavDesktop from "./NavDesktop.astro";
+import NavMobile from "./NavMobile";
+
+interface Props {
+  links: string[];
+}
+
+const { links } = Astro.props as Props;
+---
+
+<header class="flex justify-between items-center">
+  <img src="/logo.svg" alt="" />
+  <NavDesktop links={links} />
+  <MenuButton client:load />
+  <NavMobile client:load links={links} />
+</header>
