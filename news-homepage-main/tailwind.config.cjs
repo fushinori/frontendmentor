@@ -4,7 +4,7 @@ module.exports = {
   theme: {
     extend: {
       fontSize: {
-        sm: "1.5rm",
+        sm: ".9375rem",
       },
       colors: {
         "soft-orange": "hsl(35, 77%, 62%)",
