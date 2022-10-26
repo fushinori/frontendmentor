@@ -15,7 +15,7 @@ export default function NavMobile({ links }: Props) {
   }
 
   return (
-    <nav className={className}>
+    <nav id="primary-nav" className={className}>
       <ul className="relative top-40 flex flex-col gap-5 text-lg">
         {links.map((link) => (
           <li key={link}>

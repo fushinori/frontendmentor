@@ -9,7 +9,12 @@ export default function MenuButton() {
   };
 
   return (
-    <button className="md:hidden z-10" onClick={handleClick}>
+    <button
+      className="md:hidden z-10"
+      aria-controls="primary-nav"
+      aria-expanded={$isMenuOpen}
+      onClick={handleClick}
+    >
       {$isMenuOpen ? (
         <img src="/icon-menu-close.svg" alt="Close menu" />
       ) : (
