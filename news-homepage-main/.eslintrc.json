@@ -7,8 +7,6 @@
     "eslint:recommended",
     "plugin:@typescript-eslint/recommended",
     "plugin:astro/recommended",
-    "plugin:react/recommended",
-    "plugin:react/jsx-runtime",
     "prettier"
   ],
   "overrides": [
@@ -19,6 +17,16 @@
         "parser": "@typescript-eslint/parser",
         "extraFileExtensions": [".astro"]
       }
+    },
+    {
+      "files": ["*.tsx"],
+      "extends": [
+        "eslint:recommended",
+        "plugin:@typescript-eslint/recommended",
+        "plugin:react/recommended",
+        "plugin:react/jsx-runtime",
+        "prettier"
+      ]
     }
   ],
   "parser": "@typescript-eslint/parser",
