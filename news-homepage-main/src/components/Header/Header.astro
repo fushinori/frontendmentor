@@ -10,7 +10,7 @@ interface Props {
 const { links } = Astro.props as Props;
 ---
 
-<header class="flex justify-between items-center">
+<header class="flex justify-between items-center mb-10">
   <img src="/logo.svg" alt="" />
   <NavDesktop links={links} />
   <MenuButton client:load />
