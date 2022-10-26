@@ -1,6 +1,13 @@
 ---
 import Layout from "../layouts/Layout.astro";
+import MainArticle from "../components/MainArticle/MainArticle.astro";
 import "../styles.css";
+
+const mainArticleHeadline = "The Bright Future of Web 3.0?";
+const mainArticlePreview =
+  "We dive into the next evolution of the web that claims to put the power of the platforms back into the hands of the people. But is it really fulfilling its promise?";
 ---
 
-<Layout />
+<Layout
+  ><MainArticle headline={mainArticleHeadline} preview={mainArticlePreview} />
+</Layout>
