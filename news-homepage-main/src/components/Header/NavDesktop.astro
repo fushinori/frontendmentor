@@ -8,6 +8,14 @@ const { links } = Astro.props as Props;
 
 <nav class="hidden md:block">
   <ul class="flex gap-8">
-    {links.map((link) => <li>{link}</li>)}
+    {
+      links.map((link) => (
+        <li>
+          <a class="hover:text-soft-red" href="/">
+            {link}
+          </a>
+        </li>
+      ))
+    }
   </ul>
 </nav>

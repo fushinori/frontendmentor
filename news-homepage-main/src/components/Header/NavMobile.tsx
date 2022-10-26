@@ -19,7 +19,9 @@ export default function NavMobile({ links }: Props) {
       <ul className="relative top-40 flex flex-col gap-5 text-lg">
         {links.map((link) => (
           <li key={link}>
-            <a href="/">{link}</a>
+            <a className="hover:text-soft-red" href="/">
+              {link}
+            </a>
           </li>
         ))}
       </ul>
