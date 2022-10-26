@@ -14,7 +14,7 @@ import Header from "../components/Header/Header.astro";
   <body>
     <div class="px-4 py-8 lg:px-40 lg:py-20">
       <Header links={["Home", "New", "Popular", "Trending", "Categories"]} />
-      <main class="lg:grid lg:grid-cols-3">
+      <main class="flex flex-col gap-8 lg:grid lg:grid-cols-3">
         <slot />
       </main>
     </div>
