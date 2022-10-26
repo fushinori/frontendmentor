@@ -1,0 +1,25 @@
+---
+import Divider from "./Divider.astro";
+import Article from "./Article.astro";
+import type { Article as ArticleObject } from "../Article";
+
+interface Props {
+  articles: ArticleObject[];
+}
+
+const { articles } = Astro.props as Props;
+---
+
+<section class="flex flex-col gap-4 bg-dark-blue px-4 py-6 lg:py-8">
+  <h2 class="text-soft-orange font-bold text-3xl lg:text-4xl mb-2">New</h2>
+  {
+    articles.map((article, index, array) =>
+      index < array.length - 1 ? (
+        <Article headline={article.headline} preview={article.preview} />
+        <Divider />
+      ) : (
+        <Article headline={article.headline} preview={article.preview} />
+      )
+    )
+  }
+</section>

@@ -1,0 +1,15 @@
+---
+interface Props {
+  headline: string;
+  preview: string;
+}
+
+const { headline, preview } = Astro.props as Props;
+---
+
+<article>
+  <a class="text-off-white hover:text-soft-orange" href="/">
+    <h3 class="font-bold mb-2 text-xl">{headline}</h3>
+  </a>
+  <p class="text-grayish-blue-400 text-sm leading-6">{preview}</p>
+</article>
