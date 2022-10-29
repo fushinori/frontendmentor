@@ -16,14 +16,8 @@ const padZero = (count: number): string => {
 };
 ---
 
-<section
-  aria-labelledby="top-articles"
-  class="flex flex-col gap-8 lg:gap-0 lg:grid lg:grid-cols-3 lg:col-span-full"
->
-  <h2 id="top-articles" class="sr-only">Top Articles</h2>
-  {
-    articles.map((article, index) => (
-      <Article article={article} count={padZero(index + 1)} />
-    ))
-  }
-</section>
+{
+  articles.map((article, index) => (
+    <Article article={article} count={padZero(index + 1)} />
+  ))
+}

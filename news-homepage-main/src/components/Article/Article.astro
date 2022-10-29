@@ -9,7 +9,7 @@ interface Props {
 const { article, count } = Astro.props as Props;
 ---
 
-<article class="flex gap-6">
+<article class="flex gap-6 lg:mt-14">
   <img
     src={article.image.url}
     alt={article.image.alt}
@@ -18,9 +18,9 @@ const { article, count } = Astro.props as Props;
   <div class="flex flex-col justify-between">
     <p class="text-grayish-blue-400 text-3xl font-bold">{count}</p>
     <a href="/" class="text-dark-blue hover:text-soft-red">
-      <h3 class="text-lg font-extrabold">
+      <h2 class="text-lg font-extrabold">
         {article.article.headline}
-      </h3>
+      </h2>
     </a>
     <p class="text-grayish-blue-700 text-sm">
       {article.article.preview}
