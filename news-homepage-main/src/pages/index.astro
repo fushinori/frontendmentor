@@ -2,16 +2,17 @@
 import Layout from "../layouts/Layout.astro";
 import MainArticle from "../components/MainArticle/MainArticle.astro";
 import "../styles.css";
-import type { Article } from "../components/Article";
+import type { GenericArticle, Article } from "../components/types";
 import NewArticles from "../components/NewArticles/NewArticles.astro";
+import Articles from "../components/Article/Articles.astro";
 
-const mainArticle: Article = {
+const mainArticle: GenericArticle = {
   headline: "The Bright Future of Web 3.0?",
   preview:
     "We dive into the next evolution of the web that claims to put the power of the platforms back into the hands of the people. But is it really fulfilling its promise?",
 };
 
-const newArticles: Article[] = [
+const newArticles: GenericArticle[] = [
   {
     headline: "Hydrogen VS Electric Cars",
     preview: "Will hydrogen-fueled cars ever catch up to EVs?",
@@ -27,9 +28,43 @@ const newArticles: Article[] = [
       "Private funding by VC firms is down 50% YOY. We take a look at what that means.",
   },
 ];
+
+const articles: Article[] = [
+  {
+    image: {
+      url: "/image-retro-pcs.jpg",
+      alt: "Retro PCs",
+    },
+    article: {
+      headline: "Reviving Retro PCs",
+      preview: "What happens when old PCs are given modern upgrades?",
+    },
+  },
+  {
+    image: {
+      url: "/image-top-laptops.jpg",
+      alt: "Close-up of a gaming laptop keyboard",
+    },
+    article: {
+      headline: "Top 10 Laptops of 2022",
+      preview: "Our best picks for various needs and budgets.",
+    },
+  },
+  {
+    image: {
+      url: "/image-gaming-growth.jpg",
+      alt: "Gaming controller",
+    },
+    article: {
+      headline: "The Growth of Gaming",
+      preview: "How the pandemic has sparked fresh opportunities.",
+    },
+  },
+];
 ---
 
 <Layout>
-  <MainArticle headline={mainArticle.headline} preview={mainArticle.preview} />
+  <MainArticle article={mainArticle} />
   <NewArticles articles={newArticles} />
+  <Articles articles={articles} />
 </Layout>
