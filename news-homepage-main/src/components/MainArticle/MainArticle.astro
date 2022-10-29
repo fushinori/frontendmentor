@@ -1,22 +1,23 @@
 ---
+import type { GenericArticle } from "../types";
 import ArticleHeadline from "./ArticleHeadline.astro";
 import ArticlePreview from "./ArticlePreview.astro";
 
 interface Props {
-  headline: string;
-  preview: string;
+  article: GenericArticle;
 }
 
-const { headline, preview } = Astro.props as Props;
+const { article } = Astro.props as Props;
 ---
 
 <article
-  class="flex flex-col gap-6 lg:grid lg:grid-cols-2 lg:col-start-1 lg:col-end-3 lg:gap-6"
+  class="flex flex-col gap-4 lg:grid lg:grid-cols-2 lg:col-start-1 lg:col-end-3 lg:gap-6"
+  aria-labelledby="article-headline"
 >
   <picture class="lg:col-span-full">
     <source srcset="/image-web-3-desktop.jpg" media="(min-width:768px)" />
-    <img src="/image-web-3-mobile.jpg" alt="" />
+    <img src="/image-web-3-mobile.jpg" alt="Web 3.0" />
   </picture>
-  <ArticleHeadline headline={headline} />
-  <ArticlePreview preview={preview} />
+  <ArticleHeadline headline={article.headline} />
+  <ArticlePreview preview={article.preview} />
 </article>

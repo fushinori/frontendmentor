@@ -1,15 +1,18 @@
 ---
+import type { GenericArticle } from "../types";
+
 interface Props {
-  headline: string;
-  preview: string;
+  article: GenericArticle;
 }
 
-const { headline, preview } = Astro.props as Props;
+const { article } = Astro.props as Props;
 ---
 
 <article>
   <a class="text-off-white hover:text-soft-orange" href="/">
-    <h3 class="font-bold mb-2 text-xl">{headline}</h3>
+    <h3 class="font-bold mb-2 text-xl">{article.headline}</h3>
   </a>
-  <p class="text-grayish-blue-400 text-sm leading-6">{preview}</p>
+  <p class="text-grayish-blue-400 text-sm leading-6 lg:text-base">
+    {article.preview}
+  </p>
 </article>
