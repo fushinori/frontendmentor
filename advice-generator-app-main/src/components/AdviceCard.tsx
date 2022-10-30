@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { MouseEvent, useEffect, useRef, useState } from "react";
 import Styles from "./AdviceCard.module.css";
 
 const { adviceCard } = Styles;
@@ -20,6 +20,7 @@ const errorAdvice: Advice = {
 
 export default function AdviceCard() {
   const [advice, setAdvice] = useState<Advice>(defaultAdvice);
+  const timeoutID = useRef(0);
 
   useEffect(() => {
     let ignore = false;
@@ -35,10 +36,18 @@ export default function AdviceCard() {
 
     return () => {
       ignore = true;
+      clearTimeout(timeoutID.current);
     };
   }, []);
 
-  const handleClick = async () => {
+  const handleClick = async (e: MouseEvent<HTMLButtonElement>) => {
+    clearTimeout(timeoutID.current);
+    const button = e.currentTarget;
+    button.toggleAttribute("disabled");
+    timeoutID.current = setTimeout(
+      () => button.toggleAttribute("disabled"),
+      2000
+    );
     setAdvice(defaultAdvice);
     const newAdvice = await fetchAdvice();
     setAdvice(newAdvice);

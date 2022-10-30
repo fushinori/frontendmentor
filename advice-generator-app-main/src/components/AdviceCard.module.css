@@ -41,6 +41,11 @@
   cursor: pointer;
 }
 
+.adviceCard button:disabled {
+  background-color: lightgray;
+  box-shadow: none;
+}
+
 .adviceCard > button > img {
   width: 45%;
 }
