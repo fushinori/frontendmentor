@@ -47,7 +47,7 @@ export default function AdviceCard() {
   const fetchAdvice = async (): Promise<Advice> => {
     const response = await fetch("https://api.adviceslip.com/advice", {
       cache: "no-cache",
-    }).then((response) => response);
+    });
     if (!response.ok) {
       return errorAdvice;
     }
