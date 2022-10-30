@@ -8,9 +8,14 @@ export default function MenuButton() {
     isMenuOpen.set(!$isMenuOpen);
   };
 
+  let buttonClassName = "md:hidden z-10";
+  if ($isMenuOpen) {
+    buttonClassName += " fixed top-9 right-4";
+  }
+
   return (
     <button
-      className="md:hidden z-10"
+      className={buttonClassName}
       aria-controls="primary-nav"
       aria-expanded={$isMenuOpen}
       onClick={handleClick}
