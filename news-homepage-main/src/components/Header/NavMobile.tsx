@@ -17,6 +17,10 @@ export default function NavMobile({ links }: Props) {
     overlayClassName += " hidden";
   }
 
+  const handleClick = () => {
+    isMenuOpen.set(!$isMenuOpen);
+  };
+
   return (
     <>
       <nav id="primary-nav" className={navClassName}>
@@ -30,7 +34,7 @@ export default function NavMobile({ links }: Props) {
           ))}
         </ul>
       </nav>
-      <div className={overlayClassName}></div>
+      <div className={overlayClassName} onClick={handleClick}></div>
     </>
   );
 }
