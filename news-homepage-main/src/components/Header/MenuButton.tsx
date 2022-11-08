@@ -1,10 +1,17 @@
 import { useStore } from "@nanostores/react";
+import type { KeyboardEvent } from "react";
 import { isMenuOpen } from "./navStore";
 
 export default function MenuButton() {
   const $isMenuOpen = useStore(isMenuOpen);
 
   const handleClick = () => {
+    isMenuOpen.set(!$isMenuOpen);
+  };
+
+  const handleKeyDown = (e: KeyboardEvent) => {
+    if (!$isMenuOpen) return;
+    if (!["Esc", "Escape"].includes(e.key)) return;
     isMenuOpen.set(!$isMenuOpen);
   };
 
@@ -19,6 +26,7 @@ export default function MenuButton() {
       aria-controls="primary-nav"
       aria-expanded={$isMenuOpen}
       onClick={handleClick}
+      onKeyDown={handleKeyDown}
     >
       {$isMenuOpen ? (
         <img src="/icon-menu-close.svg" alt="Close menu" />
