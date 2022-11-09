@@ -40,7 +40,7 @@ module.exports = {
       },
       boxShadow: {
         "inner-top": "inset 0 3px var(--tw-shadow-color)",
-        "inner-bottom": "inset 0 -4px var(--tw-shadow-color)",
+        "inner-bottom": "inset 0 -5px var(--tw-shadow-color)",
       },
     },
   },
