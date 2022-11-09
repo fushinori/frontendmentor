@@ -2,6 +2,7 @@ import { Choice, userChoice } from "./gameStore";
 
 interface Props {
   choice: Choice;
+  extraStyles?: string;
 }
 
 const returnDiskClass = (choice: Choice): string => {
@@ -20,8 +21,15 @@ const returnDiskClass = (choice: Choice): string => {
   return diskClass;
 };
 
-export default function Disk({ choice }: Props) {
+export default function Disk({ choice, extraStyles }: Props) {
   const imageSource = `/icon-${choice.toLowerCase()}.svg`;
+  let className = `grid place-items-center bg-gradient-to-b shadow-inner-bottom rounded-full w-32 h-32 ${returnDiskClass(
+    choice
+  )}`;
+
+  if (extraStyles) {
+    className += ` ${extraStyles}`;
+  }
 
   const handleClick = () => {
     userChoice.set(choice);
@@ -29,12 +37,8 @@ export default function Disk({ choice }: Props) {
   };
 
   return (
-    <div
-      class={`grid place-items-center bg-gradient-to-b shadow-inner-bottom rounded-full w-[6.5rem] h-[6.5rem] ${returnDiskClass(
-        choice
-      )}`}
-    >
-      <div class="grid place-items-center bg-gradient-to-b from-white-300 to-white-500 shadow-inner-top shadow-slate-400 h-20 w-20 rounded-full">
+    <div class={className}>
+      <div class="grid place-items-center bg-gradient-to-b from-white-300 to-white-500 shadow-inner-top shadow-slate-400 w-24 h-24 rounded-full">
         <button class="" onClick={handleClick}>
           <img src={imageSource} alt={choice} class="w-10" />
         </button>
