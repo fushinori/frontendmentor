@@ -21,9 +21,10 @@ import Header from "../components/Header/Header.astro";
   <body
     class="bg-gradient-radial from-indigo-100 to-indigo-700 min-h-screen p-6"
   >
-    <Header />
-    <main>
-      <slot />
+    <main class="flex flex-col gap-40">
+      <Header />
+      <slot name="game" />
+      <slot name="rules-button" />
     </main>
   </body>
 </html>
