@@ -13,14 +13,14 @@ export default function GameResult() {
     setTimeout(() => {
       setComputerChoice();
       setComputerDidChoose(!computerDidChoose);
-    }, 3000);
+    }, 2000);
 
     setTimeout(() => {
       const result = getResult(userChoice.get(), computerChoice.get());
       calculateAndSaveScore(result);
       matchResult.set(result);
       setMatchOver(!matchOver);
-    }, 4000);
+    }, 3000);
     // Only run after first render
     // eslint-disable-next-line
   }, []);
