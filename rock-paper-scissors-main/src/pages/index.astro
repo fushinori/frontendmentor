@@ -1,6 +1,9 @@
 ---
+import Game from "../components/Game/Game";
 import Layout from "../layouts/Layout.astro";
 import "../styles.css";
 ---
 
-<Layout />
+<Layout>
+  <Game client:load />
+</Layout>

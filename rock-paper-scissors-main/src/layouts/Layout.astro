@@ -1,5 +1,6 @@
 ---
 import Header from "../components/Header/Header.astro";
+import Rules from "../components/Rules/Rules";
 ---
 
 <!DOCTYPE html>
@@ -21,10 +22,10 @@ import Header from "../components/Header/Header.astro";
   <body
     class="bg-gradient-radial from-indigo-100 to-indigo-700 min-h-screen p-6"
   >
-    <main class="flex flex-col gap-40">
+    <main class="flex flex-col items-center gap-28">
       <Header />
-      <slot name="game" />
-      <slot name="rules-button" />
+      <slot />
+      <Rules client:load />
     </main>
   </body>
 </html>
