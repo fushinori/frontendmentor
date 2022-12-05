@@ -1,10 +1,14 @@
 import { atom } from "nanostores";
+import { Result } from "./logic";
 
 export enum Choice {
   Rock = "Rock",
   Paper = "Paper",
   Scissors = "Scissors",
+  None = "None",
 }
 
-export const hasGameStarted = atom(false);
-export const userChoice = atom<Choice | null>(null);
+export const isGameInProgress = atom(false);
+export const userChoice = atom<Choice>(Choice.None);
+export const computerChoice = atom<Choice>(Choice.None);
+export const matchResult = atom<Result>(Result.Draw);
