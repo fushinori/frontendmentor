@@ -31,7 +31,7 @@ export default function ResultScreen({ result }: Props) {
     <div class="flex flex-col gap-6">
       <p class="uppercase text-white-100 font-bold text-6xl">{text}</p>
       <button
-        class="text-indigo-400 tracking-widest uppercase bg-white-100 rounded-lg py-3"
+        class="text-indigo-400 hover:text-red-500 tracking-widest uppercase bg-white-100 rounded-lg py-3"
         onClick={handleClick}
       >
         Play Again
