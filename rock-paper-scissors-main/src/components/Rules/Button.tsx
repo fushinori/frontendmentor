@@ -11,7 +11,7 @@ export default function Button() {
   return (
     <button
       onClick={handleClick}
-      class="border-white-100 border-[1px] rounded-lg p-2 uppercase text-white-100 tracking-widest w-32 absolute bottom-12"
+      class="border-white-100 border-[1px] rounded-lg p-2 uppercase text-white-100 tracking-widest w-32 absolute bottom-10 md:right-10 md:bottom-10"
     >
       Rules
     </button>
