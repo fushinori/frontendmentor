@@ -39,6 +39,12 @@ module.exports = {
       boxShadow: {
         "inner-top": "inset 0 5px rgb(0 0 0 / 0.1)",
         "outer-disk": "inset 0 -5px rgb(0 0 0 / 0.2), 0 4px rgb(0 0 0 / 0.2)",
+        "inner-top-md": "inset 0 8px rgb(0 0 0 / 0.1)",
+        "outer-disk-md":
+          "inset 0 -8px rgb(0 0 0 / 0.3), 0 4px rgb(0 0 0 / 0.2)",
+        "inner-top-lg": "inset 0 12px rgb(0 0 0 / 0.1)",
+        "outer-disk-lg":
+          "inset 0 -10px rgb(0 0 0 / 0.2), 0 4px rgb(0 0 0 / 0.2)",
       },
     },
   },
