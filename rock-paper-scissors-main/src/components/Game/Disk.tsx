@@ -5,6 +5,7 @@ interface Props {
   extraStyles?: string;
   size?: "big" | "large";
   isWinner?: boolean;
+  isDisabled?: boolean;
 }
 
 const returnDiskClass = (choice: Choice): string => {
@@ -26,7 +27,13 @@ const returnDiskClass = (choice: Choice): string => {
   return diskClass;
 };
 
-export default function Disk({ choice, extraStyles, size, isWinner }: Props) {
+export default function Disk({
+  choice,
+  extraStyles,
+  size,
+  isWinner,
+  isDisabled,
+}: Props) {
   const imageSource = `/icon-${choice.toLowerCase()}.svg`;
   let outerSize = "";
   let innerSize = "";
@@ -73,7 +80,7 @@ export default function Disk({ choice, extraStyles, size, isWinner }: Props) {
   return (
     <div class={outerClass} onClick={handleClick}>
       <div class={innerClass}>
-        <button>
+        <button disabled={isDisabled}>
           <img src={imageSource} alt={choice} class={imageClass} />
         </button>
       </div>
