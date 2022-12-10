@@ -1,12 +1,18 @@
 import { useEffect, useState } from "preact/hooks";
 import Disk from "./Disk";
 import { userChoice, Choice, computerChoice, matchResult } from "./gameStore";
-import { setComputerChoice, getResult, calculateAndSaveScore } from "./logic";
+import {
+  setComputerChoice,
+  getResult,
+  calculateAndSaveScore,
+  returnWinners,
+} from "./logic";
 import ResultScreen from "./ResultScreen";
 
 export default function GameResult() {
   const [computerDidChoose, setComputerDidChoose] = useState(false);
   const [matchOver, setMatchOver] = useState(false);
+  const [winners, setWinners] = useState([false, false]);
   const $computerChoice = computerChoice.get();
 
   useEffect(() => {
@@ -19,6 +25,7 @@ export default function GameResult() {
       const result = getResult(userChoice.get(), computerChoice.get());
       calculateAndSaveScore(result);
       matchResult.set(result);
+      setWinners(returnWinners(result));
       setMatchOver(!matchOver);
     }, 3000);
     // Only run after first render
@@ -31,9 +38,17 @@ export default function GameResult() {
       <section class="flex flex-col items-center w-full gap-20 md:hidden">
         <h2 class="sr-only">Main Game Section</h2>
         <div class="flex justify-between gap-10">
-          <ChoiceComponent choice={userChoice.get()} text="You Picked" />
+          <ChoiceComponent
+            choice={userChoice.get()}
+            text="You Picked"
+            isWinner={winners[0]}
+          />
           {computerDidChoose ? (
-            <ChoiceComponent choice={$computerChoice} text="The House Picked" />
+            <ChoiceComponent
+              choice={$computerChoice}
+              text="The House Picked"
+              isWinner={winners[1]}
+            />
           ) : (
             <ChoiceComponent choice={null} text="The House Picked" />
           )}
@@ -43,10 +58,18 @@ export default function GameResult() {
       {/* Desktop result section */}
       <section class="hidden md:flex items-center gap-20">
         <h2 class="sr-only">Main Game Section</h2>
-        <ChoiceComponent choice={userChoice.get()} text="You Picked" />
+        <ChoiceComponent
+          choice={userChoice.get()}
+          text="You Picked"
+          isWinner={winners[0]}
+        />
         {matchOver && <ResultScreen result={matchResult.get()} />}
         {computerDidChoose ? (
-          <ChoiceComponent choice={$computerChoice} text="The House Picked" />
+          <ChoiceComponent
+            choice={$computerChoice}
+            text="The House Picked"
+            isWinner={winners[1]}
+          />
         ) : (
           <ChoiceComponent choice={null} text="The House Picked" />
         )}
@@ -67,14 +90,25 @@ const PlaceHolder = () => {
 interface ChoiceProps {
   choice: Choice | null;
   text: string;
+  isWinner?: boolean;
 }
 
-const ChoiceComponent = ({ choice, text }: ChoiceProps) => {
+const ChoiceComponent = ({ choice, text, isWinner }: ChoiceProps) => {
   return (
     <>
       {/* Mobile */}
       <div class="flex flex-col items-center justify-center gap-6 md:hidden">
-        {choice ? <Disk choice={choice} size="large" /> : <PlaceHolder />}
+        {choice ? (
+          <Disk
+            choice={choice}
+            size="big"
+            isWinner={isWinner}
+            // So shadow doesn't overlap
+            extraStyles={!isWinner ? "relative z-20" : ""}
+          />
+        ) : (
+          <PlaceHolder />
+        )}
         <p class="uppercase tracking-widest text-white-100 font-bold">{text}</p>
       </div>
 
@@ -83,7 +117,11 @@ const ChoiceComponent = ({ choice, text }: ChoiceProps) => {
         <p class="uppercase tracking-widest text-white-100 font-bold text-2xl">
           {text}
         </p>
-        {choice ? <Disk choice={choice} size="large" /> : <PlaceHolder />}
+        {choice ? (
+          <Disk choice={choice} size="large" isWinner={isWinner} />
+        ) : (
+          <PlaceHolder />
+        )}
       </div>
     </>
   );
