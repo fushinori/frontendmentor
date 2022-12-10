@@ -35,8 +35,13 @@ export default function GameResult() {
   return (
     <>
       {/* Mobile result section */}
-      <section class="flex flex-col items-center w-full gap-20 md:hidden">
-        <h2 class="sr-only">Main Game Section</h2>
+      <section
+        aria-labelledby="game-title"
+        class="flex flex-col items-center w-full gap-20 md:hidden"
+      >
+        <h2 id="game-title" class="sr-only">
+          Main Game Section
+        </h2>
         <div class="flex justify-between gap-10">
           <ChoiceComponent
             choice={userChoice.get()}
@@ -56,8 +61,13 @@ export default function GameResult() {
         {matchOver && <ResultScreen result={matchResult.get()} />}
       </section>
       {/* Desktop result section */}
-      <section class="hidden md:flex items-center gap-20">
-        <h2 class="sr-only">Main Game Section</h2>
+      <section
+        aria-labelledby="game-title"
+        class="hidden md:flex items-center gap-20"
+      >
+        <h2 id="game-title" class="sr-only">
+          Main Game Section
+        </h2>
         <ChoiceComponent
           choice={userChoice.get()}
           text="You Picked"

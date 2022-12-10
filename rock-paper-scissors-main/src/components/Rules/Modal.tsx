@@ -54,10 +54,17 @@ export default function Modal() {
         className="md:hidden absolute top-0 h-full w-full bg-white-100 flex flex-col items-center justify-center gap-28 z-20"
         role="dialog"
         onKeyDown={handleKeyDown}
+        aria-labelledby="dialog-title"
+        aria-describedby="dialog-desc"
       >
-        <h2 className="uppercase text-3xl font-bold text-indigo-100">Rules</h2>
+        <h2
+          id="dialog-title"
+          className="uppercase text-3xl font-bold text-indigo-100"
+        >
+          Rules
+        </h2>
         <img src="/image-rules.svg" alt="" aria-hidden="true" />
-        <p class="sr-only">
+        <p id="dialog-desc" class="sr-only">
           The outcome of the game is determined by 3 simple rules: Rock wins
           against scissors. Scissors win against paper. Paper wins against rock.
         </p>
@@ -70,7 +77,10 @@ export default function Modal() {
         class="hidden md:grid absolute top-0 h-full w-full bg-black bg-opacity-60 place-items-center"
         // Close modal when user clicks outside
         onClick={handleClick}
+        role="dialog"
         onKeyDown={handleKeyDown}
+        aria-labelledby="dialog-title"
+        aria-describedby="dialog-desc"
       >
         <div
           class="flex flex-col items-center bg-white-100 py-8 rounded-md px-8 gap-12"
@@ -78,13 +88,18 @@ export default function Modal() {
           onClick={noPropagate}
         >
           <div class="flex justify-between items-center w-full">
-            <h2 class="uppercase text-4xl font-bold text-indigo-100">Rules</h2>
+            <h2
+              id="dialog-title"
+              class="uppercase text-4xl font-bold text-indigo-100"
+            >
+              Rules
+            </h2>
             <button ref={desktopRef} onClick={handleClick}>
               <img src="/icon-close.svg" alt="Close Rules" />
             </button>
           </div>
           <img src="/image-rules.svg" alt="" aria-hidden="true" class="px-8" />
-          <p class="sr-only">
+          <p id="dialog-desc" class="sr-only">
             The outcome of the game is determined by 3 simple rules: Rock wins
             against scissors. Scissors win against paper. Paper wins against
             rock.

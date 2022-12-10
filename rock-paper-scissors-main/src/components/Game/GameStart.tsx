@@ -10,8 +10,13 @@ const paperStyles =
 
 export default function GameStart() {
   return (
-    <section class="relative grid place-items-center px-8 top-10 w-full">
-      <h2 class="sr-only">Main Game Section</h2>
+    <section
+      aria-labelledby="game-title"
+      class="relative grid place-items-center px-8 top-10 w-full"
+    >
+      <h2 id="game-title" class="sr-only">
+        Main Game Section
+      </h2>
       <img
         class="w-full md:w-1/2"
         src="/bg-triangle.svg"
