@@ -53,7 +53,7 @@ export default function Disk({ choice, extraStyles, size, isWinner }: Props) {
     }
   }
 
-  let outerClass = `grid place-items-center bg-gradient-to-b ${shadowClass} rounded-full w-32 h-32 ${outerSize} ${returnDiskClass(
+  let outerClass = `grid place-items-center bg-gradient-to-b ${shadowClass} hover:cursor-pointer rounded-full w-32 h-32 ${outerSize} ${returnDiskClass(
     choice
   )}`;
   const innerClass = `grid place-items-center bg-gradient-to-b from-white-300 to-white-500 shadow-inner-top w-24 h-24 ${innerSize} rounded-full`;
@@ -71,9 +71,9 @@ export default function Disk({ choice, extraStyles, size, isWinner }: Props) {
   };
 
   return (
-    <div class={outerClass}>
+    <div class={outerClass} onClick={handleClick}>
       <div class={innerClass}>
-        <button class="" onClick={handleClick}>
+        <button>
           <img src={imageSource} alt={choice} class={imageClass} />
         </button>
       </div>
