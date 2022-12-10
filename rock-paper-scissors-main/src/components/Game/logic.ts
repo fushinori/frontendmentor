@@ -62,3 +62,23 @@ export const calculateAndSaveScore = (result: Result) => {
   score.set($score);
   localStorage.setItem("rockPaperScissorsScore", $score.toString());
 };
+
+export const returnWinners = (result: Result): boolean[] => {
+  const winners = [false, false]; // user and computer
+  switch (result) {
+    case Result.Win:
+      winners[0] = true;
+      winners[1] = false;
+
+      break;
+
+    case Result.Loss:
+      winners[0] = false;
+      winners[1] = true;
+      break;
+
+    default:
+      break;
+  }
+  return winners;
+};
