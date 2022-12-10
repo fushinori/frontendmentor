@@ -56,6 +56,7 @@ export default function Modal() {
         onKeyDown={handleKeyDown}
         aria-labelledby="dialog-title"
         aria-describedby="dialog-desc"
+        aria-modal="true"
       >
         <h2
           id="dialog-title"
@@ -81,6 +82,7 @@ export default function Modal() {
         onKeyDown={handleKeyDown}
         aria-labelledby="dialog-title"
         aria-describedby="dialog-desc"
+        aria-modal="true"
       >
         <div
           class="flex flex-col items-center bg-white-100 py-8 rounded-md px-8 gap-12"
