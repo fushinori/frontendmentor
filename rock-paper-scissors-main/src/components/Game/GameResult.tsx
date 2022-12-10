@@ -104,7 +104,7 @@ const ChoiceComponent = ({ choice, text, isWinner }: ChoiceProps) => {
             size="big"
             isWinner={isWinner}
             // So shadow doesn't overlap
-            extraStyles={!isWinner ? "relative z-20" : ""}
+            extraStyles={!isWinner ? "relative z-10" : ""}
           />
         ) : (
           <PlaceHolder />

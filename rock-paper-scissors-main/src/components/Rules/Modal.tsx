@@ -51,7 +51,7 @@ export default function Modal() {
     <>
       {/* Mobile */}
       <div
-        className="md:hidden absolute top-0 h-full w-full bg-white-100 flex flex-col items-center justify-center gap-28 z-10"
+        className="md:hidden absolute top-0 h-full w-full bg-white-100 flex flex-col items-center justify-center gap-28 z-20"
         role="dialog"
         onKeyDown={handleKeyDown}
       >
