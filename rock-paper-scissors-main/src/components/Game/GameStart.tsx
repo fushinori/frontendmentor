@@ -1,11 +1,12 @@
 import Disk from "./Disk";
 import { Choice } from "./gameStore";
 
-const rockStyles = "absolute bottom-0 md:bottom-[-50px]";
+const rockStyles =
+  "absolute bottom-0 md:bottom-[-50px] hover:scale-110 transition-transform";
 const scissorsStyles =
-  "absolute top-[-50px] right-0 md:right-[7rem] md:top-[-100px]";
+  "absolute top-[-50px] right-0 md:right-[7rem] md:top-[-100px] hover:scale-110 transition-transform";
 const paperStyles =
-  "absolute top-[-50px] left-0 md:top-[-100px] md:left-[7rem]";
+  "absolute top-[-50px] left-0 md:top-[-100px] md:left-[7rem] hover:scale-110 transition-transform";
 
 export default function GameStart() {
   return (
