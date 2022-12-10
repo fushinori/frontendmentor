@@ -4,6 +4,7 @@ interface Props {
   choice: Choice;
   extraStyles?: string;
   size?: "big" | "large";
+  isWinner?: boolean;
 }
 
 const returnDiskClass = (choice: Choice): string => {
@@ -25,22 +26,34 @@ const returnDiskClass = (choice: Choice): string => {
   return diskClass;
 };
 
-export default function Disk({ choice, extraStyles, size }: Props) {
+export default function Disk({ choice, extraStyles, size, isWinner }: Props) {
   const imageSource = `/icon-${choice.toLowerCase()}.svg`;
   let outerSize = "";
   let innerSize = "";
   let imageClass = "";
+  let shadowClass = "";
   if (size === "big") {
     outerSize = "md:w-48 md:h-48 md:shadow-outer-disk-md";
     innerSize = "md:w-36 md:h-36 md:shadow-inner-top-md";
     imageClass = "w-10 md:w-16";
+    shadowClass = "shadow-outer-disk";
+    if (isWinner) {
+      shadowClass = "shadow-winner-sm";
+    } else {
+      shadowClass = "shadow-outer-disk md:shadow-outer-disk-md";
+    }
   } else if (size === "large") {
     outerSize = "md:w-72 md:h-72 md:shadow-outer-disk-lg";
     innerSize = "md:w-56 md:h-56 md:shadow-inner-top-lg";
     imageClass = "w-10 md:w-24";
+    if (isWinner) {
+      shadowClass = "md:shadow-winner-lg";
+    } else {
+      shadowClass = "md:shadow-outer-disk-lg";
+    }
   }
 
-  let outerClass = `grid place-items-center bg-gradient-to-b shadow-outer-disk rounded-full w-32 h-32 ${outerSize} ${returnDiskClass(
+  let outerClass = `grid place-items-center bg-gradient-to-b ${shadowClass} rounded-full w-32 h-32 ${outerSize} ${returnDiskClass(
     choice
   )}`;
   const innerClass = `grid place-items-center bg-gradient-to-b from-white-300 to-white-500 shadow-inner-top w-24 h-24 ${innerSize} rounded-full`;
