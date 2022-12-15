@@ -1,22 +1,42 @@
-import { useRef } from "preact/hooks";
+import { useForm } from "react-hook-form";
+// Importing types so eslint shouldn't complain but oh well
+// eslint-disable-next-line no-duplicate-imports
+import type { UseFormRegister, FieldErrorsImpl } from "react-hook-form";
 
-const inputs = ["name", "email", "phone"];
+type Inputs = "name" | "email" | "phone";
+const inputs: Inputs[] = ["name", "email", "phone"];
+
+interface FormData {
+  name: string;
+  email: string;
+  phone: string;
+}
 
 export default function Info() {
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm<FormData>();
+
+  const onSubmit = handleSubmit((data) => console.log(data));
+
   return (
-    <form class="flex flex-col gap-4">
+    <form id="personal-info" class="flex flex-col gap-4" onSubmit={onSubmit}>
       {inputs.map((i) => (
-        <Input key={i} name={i} />
+        <Input key={i} name={i} register={register} errors={errors} />
       ))}
     </form>
   );
 }
 
 interface Props {
-  name: string;
+  name: Inputs;
+  register: UseFormRegister<FormData>;
+  errors: Partial<FieldErrorsImpl<FormData>>;
 }
 
-const Input = ({ name }: Props) => {
+const Input = ({ name, register, errors }: Props) => {
   let type;
   let placeholder;
   let label;
@@ -31,7 +51,6 @@ const Input = ({ name }: Props) => {
       label = "Email Address";
       placeholder = "e.g. stephenking@lorem.com";
       break;
-
     case "phone":
       type = "tel";
       placeholder = "e.g. +1 234 567 890";
@@ -42,37 +61,33 @@ const Input = ({ name }: Props) => {
       break;
   }
 
-  const ref = useRef<HTMLParagraphElement>(null);
-  const inputRef = useRef<HTMLInputElement>(null);
+  let inputStyles =
+    "outline-none border-[1px] py-2 px-4 rounded-[0.2rem] w-full placeholder:font-medium focus:border-purplish-blue";
 
-  const handleInput = (e: Event) => {
-    if (!ref.current) return;
-    if (e.target instanceof HTMLInputElement) {
-      if (e.target.value.trim() === "") {
-        ref.current.innerText = "This field is required";
-        inputRef.current?.classList.add("border-strawberry-red");
-      } else {
-        ref.current.innerText = "";
-        inputRef.current?.classList.remove("border-strawberry-red");
-      }
-    }
-  };
+  if (errors[name]) {
+    inputStyles += " border-strawberry-red";
+  } else {
+    inputStyles += " border-light-gray";
+  }
+
   return (
     <div class="flex flex-col gap-2">
       <div class="flex justify-between">
         <label class="text-xs text-marine-blue" for={name}>
           {label}
         </label>
-        <p class="text-xs text-strawberry-red font-bold" ref={ref} />
+        {errors[name]?.type === "required" && (
+          <p class="text-xs text-strawberry-red font-bold">
+            This field is required
+          </p>
+        )}
       </div>
       <input
         id={name}
-        class="outline-none border-light-gray border-[1px] py-2 px-4 rounded-[0.2rem] w-full placeholder:font-medium focus:border-purplish-blue"
+        class={inputStyles}
         type={type}
-        name={name}
         placeholder={placeholder}
-        ref={inputRef}
-        onInput={handleInput}
+        {...register(name, { required: true })}
       />
     </div>
   );
