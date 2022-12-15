@@ -8,7 +8,7 @@ interface Props {
 export default function StepNumber({ stepNumber }: Props) {
   const $activeStep = useStore(activeStep);
 
-  let styles = "grid place-items-center text-white rounded-full h-8 w-8";
+  let styles = "grid place-items-center rounded-full h-8 w-8";
 
   if ($activeStep === stepNumber) {
     styles += " text-marine-blue bg-light-blue";
