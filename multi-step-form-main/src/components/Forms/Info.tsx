@@ -2,24 +2,22 @@ import { useForm } from "react-hook-form";
 // Importing types so eslint shouldn't complain but oh well
 // eslint-disable-next-line no-duplicate-imports
 import type { UseFormRegister, FieldErrorsImpl } from "react-hook-form";
+import { activeStep, info, InfoFormData } from "../store";
 
 type Inputs = "name" | "email" | "phone";
 const inputs: Inputs[] = ["name", "email", "phone"];
-
-interface FormData {
-  name: string;
-  email: string;
-  phone: string;
-}
 
 export default function Info() {
   const {
     register,
     handleSubmit,
     formState: { errors },
-  } = useForm<FormData>();
+  } = useForm<InfoFormData>();
 
-  const onSubmit = handleSubmit((data) => console.log(data));
+  const onSubmit = handleSubmit((data) => {
+    info.set(data);
+    activeStep.set(activeStep.get() + 1);
+  });
 
   return (
     <form id="personal-info" class="flex flex-col gap-4" onSubmit={onSubmit}>
@@ -32,8 +30,8 @@ export default function Info() {
 
 interface Props {
   name: Inputs;
-  register: UseFormRegister<FormData>;
-  errors: Partial<FieldErrorsImpl<FormData>>;
+  register: UseFormRegister<InfoFormData>;
+  errors: Partial<FieldErrorsImpl<InfoFormData>>;
 }
 
 const Input = ({ name, register, errors }: Props) => {
@@ -70,6 +68,14 @@ const Input = ({ name, register, errors }: Props) => {
     inputStyles += " border-light-gray";
   }
 
+  const handleInput = (e: Event) => {
+    if (e.target instanceof HTMLInputElement) {
+      const { name } = e.target;
+      // We know that the input names are all keys included in InfoFormData
+      info.setKey(name as keyof InfoFormData, e.target.value);
+    }
+  };
+
   return (
     <div class="flex flex-col gap-2">
       <div class="flex justify-between">
@@ -87,6 +93,8 @@ const Input = ({ name, register, errors }: Props) => {
         class={inputStyles}
         type={type}
         placeholder={placeholder}
+        value={info.get()[name]}
+        onInput={handleInput}
         {...register(name, { required: true })}
       />
     </div>
