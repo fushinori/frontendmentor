@@ -2,7 +2,8 @@ import { useForm } from "react-hook-form";
 // Importing types so eslint shouldn't complain but oh well
 // eslint-disable-next-line no-duplicate-imports
 import type { UseFormRegister, FieldErrorsImpl } from "react-hook-form";
-import { activeStep, info, InfoFormData } from "../store";
+import { activeStep, info } from "../store";
+import type { InfoFormData } from "../../types";
 
 type Inputs = "name" | "email" | "phone";
 const inputs: Inputs[] = ["name", "email", "phone"];
@@ -77,7 +78,7 @@ const Input = ({ name, register, errors }: Props) => {
   };
 
   return (
-    <div class="flex flex-col gap-2">
+    <div class="flex flex-col gap-1">
       <div class="flex justify-between">
         <label class="text-xs text-marine-blue" for={name}>
           {label}

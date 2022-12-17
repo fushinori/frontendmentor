@@ -1,5 +1,6 @@
 import { useStore } from "@nanostores/preact";
-import { ActiveStep, activeStep } from "../store";
+import { ActiveStep } from "../../types";
+import { activeStep } from "../store";
 import Button from "./Button";
 
 export default function Strip() {
