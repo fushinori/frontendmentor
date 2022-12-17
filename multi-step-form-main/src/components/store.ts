@@ -1,19 +1,13 @@
 import { atom, map } from "nanostores";
-
-export enum ActiveStep {
-  Info = 1,
-  Plan,
-  AddOns,
-  Summary,
-  Done,
-}
-
-export interface InfoFormData {
-  name: string;
-  email: string;
-  phone: string;
-}
+import { ActiveStep, AddOn, Billing, InfoFormData, Plan } from "../types";
 
 export const activeStep = atom(ActiveStep.Info);
 export const submitted = atom(false);
+
 export const info = map<InfoFormData>({ name: "", email: "", phone: "" });
+
+export const billing = atom(Billing.Monthly);
+export const plan = atom(Plan.Arcade);
+export const addOns = atom<Set<AddOn>>(
+  new Set([AddOn.OnlineService, AddOn.LargerStorage])
+);
