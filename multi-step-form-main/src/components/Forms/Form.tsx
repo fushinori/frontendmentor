@@ -1,9 +1,12 @@
 import { useStore } from "@nanostores/preact";
 import Steps from "../Steps/Steps";
 import type { JSX } from "preact";
-import { ActiveStep, activeStep } from "../store";
+import { activeStep } from "../store";
 import FormLayout from "./FormLayout";
 import Info from "./Info";
+import Strip from "../Buttons/Strip";
+import Plan from "./Plan/Plan";
+import type { ActiveStep } from "../../types";
 
 export interface FormInfo {
   title: string;
@@ -23,6 +26,13 @@ const formSteps: CompleteForm[] = [
     },
     component: <Info />,
   },
+  {
+    info: {
+      title: "Select your plan",
+      description: "You have the option of monthly or yearly billing.",
+    },
+    component: <Plan />,
+  },
 ];
 
 const returnForm = (step: ActiveStep) => {
@@ -33,12 +43,16 @@ export default function Form() {
   const $activeStep = useStore(activeStep);
   const form = returnForm($activeStep);
   return (
-    <main class="relative" aria-labelledby="main-title">
+    <main
+      class="relative flex flex-col justify-between items-center min-h-screen"
+      aria-labelledby="main-title"
+    >
       <h1 id="main-title" class="sr-only">
         Multi Step Form
       </h1>
       <Steps />
       <FormLayout info={form.info}>{form.component}</FormLayout>
+      <Strip />
     </main>
   );
 }
