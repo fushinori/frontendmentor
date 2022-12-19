@@ -28,16 +28,20 @@ export default function Strip() {
     activeStep.set($activeStep - 1);
   };
 
+  const handleNext = () => {
+    activeStep.set($activeStep + 1);
+  };
+
   return (
     <div class={`flex ${flexDirection} justify-between w-full bg-white p-4`}>
       {$activeStep > ActiveStep.Info && (
         <Button type="previous" handleClick={handlePrevious} />
       )}
-      {$activeStep < ActiveStep.Summary ? (
-        <Button type="next" form={form} />
-      ) : (
-        <Button type="confirm" />
+      {$activeStep === ActiveStep.Info && <Button type="next" form={form} />}
+      {$activeStep > ActiveStep.Info && $activeStep != ActiveStep.Summary && (
+        <Button type="next" handleClick={handleNext} />
       )}
+      {$activeStep === ActiveStep.Summary && <Button type="confirm" />}
     </div>
   );
 }
