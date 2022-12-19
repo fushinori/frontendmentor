@@ -13,9 +13,9 @@ export interface InfoFormData {
 }
 
 export enum Plan {
-  Arcade,
-  Advanced,
-  Pro,
+  Arcade = "Arcade",
+  Advanced = "Advanced",
+  Pro = "Pro",
 }
 
 export enum Billing {
