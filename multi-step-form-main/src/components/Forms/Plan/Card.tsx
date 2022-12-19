@@ -42,7 +42,7 @@ export default function Card({ cardPlan }: Props) {
 
   return (
     <div
-      class={`flex gap-4 ${extraStyles} outline-none border-[1px] rounded-lg p-4 focus:border-purplish-blue hover:border-purplish-blue cursor-pointer`}
+      class={`flex gap-4 ${extraStyles} outline-none border-[1px] rounded-lg p-4 focus:border-purplish-blue hover:border-purplish-blue cursor-pointer transition-colors duration-300`}
       tabIndex={0}
       onClick={handleClick}
       onKeyDown={handleKeyDown}
