@@ -6,8 +6,9 @@ import FormLayout from "./FormLayout";
 import Info from "./Info";
 import Strip from "../Buttons/Strip";
 import Plan from "./Plan/Plan";
-import type { ActiveStep } from "../../types";
+import { ActiveStep } from "../../types";
 import AddOns from "./AddOns/AddOns";
+import Summary from "./Summary/Summary";
 
 export interface FormInfo {
   title: string;
@@ -41,6 +42,13 @@ const formSteps: CompleteForm[] = [
     },
     component: <AddOns />,
   },
+  {
+    info: {
+      title: "Finishing up",
+      description: "Double-check everything looks OK before confirming.",
+    },
+    component: <Summary />,
+  },
 ];
 
 const returnForm = (step: ActiveStep) => {
@@ -60,7 +68,7 @@ export default function Form() {
       </h1>
       <Steps />
       <FormLayout info={form.info}>{form.component}</FormLayout>
-      <Strip />
+      {$activeStep !== ActiveStep.Done && <Strip />}
     </main>
   );
 }
