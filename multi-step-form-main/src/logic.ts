@@ -1,3 +1,4 @@
+import { addOns, billing, plan } from "./components/store";
 import { AddOn, Billing, Plan } from "./types";
 
 // A bit ugly but ensures that nothing changes even if the order of the
@@ -14,10 +15,19 @@ const addOnPrices = {
   [AddOn.CustomizableProfile]: { [Billing.Monthly]: 2, [Billing.Yearly]: 20 },
 };
 
-export const getPrice = (plan: Plan, billing: Billing) => {
-  return prices[plan][billing];
+export const getPlanPrice = (plan: Plan, billing: Billing) => {
+  const price = prices[plan][billing];
+  const formattedPrice = `$${price}/${
+    billing === Billing.Monthly ? "mo" : "yr"
+  }`;
+  return formattedPrice;
 };
 
 export const getAddOnPrice = (addOn: AddOn, billing: Billing) => {
-  return addOnPrices[addOn][billing];
+  const price = addOnPrices[addOn][billing];
+  const formattedPrice = `$${price}/${
+    billing === Billing.Monthly ? "mo" : "yr"
+  }`;
+  return formattedPrice;
+};
 };

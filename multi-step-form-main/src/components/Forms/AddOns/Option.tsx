@@ -1,7 +1,7 @@
 import { useStore } from "@nanostores/preact";
 import { useRef } from "preact/hooks";
 import { getAddOnPrice } from "../../../logic";
-import { AddOn, Billing } from "../../../types";
+import { AddOn } from "../../../types";
 import { addOns, billing } from "../../store";
 
 interface Props {
@@ -10,9 +10,7 @@ interface Props {
 export default function Option({ addOn }: Props) {
   const $addOns = useStore(addOns);
   const $billing = useStore(billing);
-  const price = `$${getAddOnPrice(addOn, $billing)}/${
-    $billing === Billing.Monthly ? "mo" : "yr"
-  }`;
+  const price = getAddOnPrice(addOn, $billing);
 
   const isAddOnAdded = (addOn: AddOn): boolean => {
     return $addOns.has(addOn);

@@ -1,6 +1,6 @@
 import { useStore } from "@nanostores/preact";
 import { useEffect, useRef } from "preact/hooks";
-import { getPrice } from "../../../logic";
+import { getPlanPrice } from "../../../logic";
 import { Billing, Plan } from "../../../types";
 import { billing, plan } from "../../store";
 
@@ -11,9 +11,7 @@ interface Props {
 export default function Card({ cardPlan }: Props) {
   const $plan = useStore(plan);
   const $billing = useStore(billing);
-  const price = `$${getPrice(cardPlan, $billing)}/${
-    $billing === Billing.Monthly ? "mo" : "yr"
-  }`;
+  const price = getPlanPrice(cardPlan, $billing);
 
   let extraStyles;
   if ($plan === cardPlan) {
