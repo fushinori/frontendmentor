@@ -30,4 +30,17 @@ export const getAddOnPrice = (addOn: AddOn, billing: Billing) => {
   }`;
   return formattedPrice;
 };
+
+export const getTotalPrice = () => {
+  const $plan = plan.get();
+  const $billing = billing.get();
+  let price: number;
+  price = prices[$plan][$billing];
+  addOns.get().forEach((addOn) => {
+    price += addOnPrices[addOn][$billing];
+  });
+  const formattedPrice = `$${price}/${
+    $billing === Billing.Monthly ? "mo" : "yr"
+  }`;
+  return formattedPrice;
 };
