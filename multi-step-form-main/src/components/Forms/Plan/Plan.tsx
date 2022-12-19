@@ -1,3 +1,12 @@
+import { Plan as PlanEnum } from "../../../types";
+import Card from "./Card";
+
 export default function Plan() {
-  return <h1>Hi</h1>;
+  return (
+    <>
+      <Card cardPlan={PlanEnum.Arcade} />
+      <Card cardPlan={PlanEnum.Advanced} />
+      <Card cardPlan={PlanEnum.Pro} />
+    </>
+  );
 }
