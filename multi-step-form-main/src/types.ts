@@ -19,8 +19,8 @@ export enum Plan {
 }
 
 export enum Billing {
-  Monthly,
-  Yearly,
+  Monthly = "Monthly",
+  Yearly = "Yearly",
 }
 
 export enum AddOn {
