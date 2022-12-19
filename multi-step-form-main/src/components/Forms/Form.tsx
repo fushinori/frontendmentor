@@ -7,6 +7,7 @@ import Info from "./Info";
 import Strip from "../Buttons/Strip";
 import Plan from "./Plan/Plan";
 import type { ActiveStep } from "../../types";
+import AddOns from "./AddOns/AddOns";
 
 export interface FormInfo {
   title: string;
@@ -32,6 +33,13 @@ const formSteps: CompleteForm[] = [
       description: "You have the option of monthly or yearly billing.",
     },
     component: <Plan />,
+  },
+  {
+    info: {
+      title: "Pick add-ons",
+      description: "Add-ons help enhance your gaming experience",
+    },
+    component: <AddOns />,
   },
 ];
 
