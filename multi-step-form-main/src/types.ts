@@ -24,7 +24,7 @@ export enum Billing {
 }
 
 export enum AddOn {
-  OnlineService,
-  LargerStorage,
-  CustomizableProfile,
+  OnlineService = "Online service",
+  LargerStorage = "Larger storage",
+  CustomizableProfile = "Customizable Profile",
 }
