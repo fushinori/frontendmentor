@@ -21,7 +21,7 @@ export default function Button({ type, form, handleClick }: Props) {
 
     case "confirm":
       text = "Confirm";
-      styles += " bg-purplish-blue";
+      styles += " bg-purplish-blue text-white";
       break;
 
     default:
