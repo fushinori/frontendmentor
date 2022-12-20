@@ -2,8 +2,8 @@ import { useForm } from "react-hook-form";
 // Importing types so eslint shouldn't complain but oh well
 // eslint-disable-next-line no-duplicate-imports
 import type { UseFormRegister, FieldErrorsImpl } from "react-hook-form";
-import { activeStep, info } from "../store";
-import type { InfoFormData } from "../../types";
+import { activeStep, info } from "../../store";
+import type { InfoFormData } from "../../../types";
 
 type Inputs = "name" | "email" | "phone";
 const inputs: Inputs[] = ["name", "email", "phone"];
