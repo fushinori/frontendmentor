@@ -1,50 +1,87 @@
-# Welcome to [Astro](https://astro.build)
+# Frontend Mentor - Multi-step form solution
 
-[![Open in StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/withastro/astro/tree/latest/examples/basics)
-[![Open with CodeSandbox](https://assets.codesandbox.io/github/button-edit-lime.svg)](https://codesandbox.io/s/github/withastro/astro/tree/latest/examples/basics)
+This is a solution to the [Multi-step form challenge on Frontend Mentor](https://www.frontendmentor.io/challenges/multistep-form-YVAnSdqQBJ). Frontend Mentor challenges help you improve your coding skills by building realistic projects.
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
+## Table of contents
 
-![basics](https://user-images.githubusercontent.com/4677417/186188965-73453154-fdec-4d6b-9c34-cb35c248ae5b.png)
+- [Overview](#overview)
+  - [The challenge](#the-challenge)
+  - [Screenshots](#screenshots)
+  - [Links](#links)
+- [My process](#my-process)
+  - [Built with](#built-with)
+  - [What I learned](#what-i-learned)
+  - [Continued development](#continued-development)
+- [Author](#author)
 
+## Overview
 
-## 🚀 Project Structure
+### The challenge
 
-Inside of your Astro project, you'll see the following folders and files:
+Users should be able to:
 
-```
-/
-├── public/
-│   └── favicon.svg
-├── src/
-│   ├── components/
-│   │   └── Card.astro
-│   ├── layouts/
-│   │   └── Layout.astro
-│   └── pages/
-│       └── index.astro
-└── package.json
-```
+- Complete each step of the sequence
+- See a summary of their selections on the final step and confirm their order
+- View the optimal layout for the interface depending on their device's screen size
+- See hover and focus states for all interactive elements on the page
 
-Astro looks for `.astro` or `.md` files in the `src/pages/` directory. Each page is exposed as a route based on its file name.
+### Screenshots
 
-There's nothing special about `src/components/`, but that's where we like to put any Astro/React/Vue/Svelte/Preact components.
+<img src="screenshots/screenshot-mobile.png" width="375">
 
-Any static assets, like images, can be placed in the `public/` directory.
+![](./screenshots/screenshot-desktop.png)
 
-## 🧞 Commands
+<img src="screenshots/screenshot-mobile-plan.png" width="375">
 
-All commands are run from the root of the project, from a terminal:
+![](./screenshots/screenshot-desktop-plan.png)
 
-| Command                | Action                                             |
-| :--------------------- | :------------------------------------------------- |
-| `npm install`          | Installs dependencies                              |
-| `npm run dev`          | Starts local dev server at `localhost:3000`        |
-| `npm run build`        | Build your production site to `./dist/`            |
-| `npm run preview`      | Preview your build locally, before deploying       |
-| `npm run astro ...`    | Run CLI commands like `astro add`, `astro preview` |
-| `npm run astro --help` | Get help using the Astro CLI                       |
+### Links
 
-## 👀 Want to learn more?
+- Solution URL: [GitHub](https://github.com/fushinori/frontendmentor/tree/master/multi-step-form-main/)
+- Live Site URL: [Live site](https://multi-step-form-fushinori.netlify.app/)
 
-Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+## My process
+
+### Built with
+
+- Semantic HTML5 markup
+- Flexbox
+- CSS Grid
+- Mobile-first workflow
+- [Preact](https://preactjs.com/) - JS library
+- [Astro](https://astro.build/) - All-in-one web framework
+- [Tailwind CSS](https://tailwindcss.com/) - For styles
+- [React Hook Form](https://react-hook-form.com/) - For form validation
+
+### What I learned
+
+- Using react-hook-form, it is easy to render components if there are validation errors.
+
+  For example, here we render the paragraph if the user doesn't fill in an input which is required.
+
+  ```tsx
+  {
+    errors[name]?.type === "required" && (
+      <p class="text-xs text-strawberry-red font-bold lg:text-sm">
+        This field is required
+      </p>
+    );
+  }
+  ```
+
+- For the plan cards and addon options, it's easy enough to get it looking like the design. However, when it comes to accessibility, things get complicated really quickly.
+
+  My first thought for the plan cards was to use hidden radio inputs and style the cards based on its state. However, radio buttons don't trigger an event when they're unchecked. Similarly, for the addons, it makes semantic sense to use checkboxes. However, hiding them and using their state to style the options was complicated. Also, the design required custom checkboxes.
+
+  Instead, I made both the plan cards and addon options focusable by adding a tab index and keydown event handlers. I also added some `<span>s` which are only visible to screen readers to provide additional information, like the currently selected plan and add-ons. I also used a `<span>` for the toggle to show which billing is currently selected.
+
+  While not the perfect solution, everything is now keyboard navigable and matches the design.
+
+### Continued development
+
+I'd like to make more forms in the future. Using the `form` attribute for a button outside the form was something new I learned this time. More complicated form validation and actually doing something with the form data are some things I could use some practice in doing.
+
+## Author
+
+- Frontend Mentor - [@fushinori](https://www.frontendmentor.io/profile/fushinori)
+- GitHub - [@fushinori](https://github.com/fushinori)
