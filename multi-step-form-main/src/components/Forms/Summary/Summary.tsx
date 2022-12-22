@@ -30,7 +30,7 @@ export default function Summary() {
             {getPlanPrice($plan, $billing)}
           </p>
         </div>
-        <Divider />
+        {$addOns.size > 0 && <Divider />}
         {Array.from($addOns).map((addOn) => (
           <AddOnInfo key={addOn} addOn={addOn} />
         ))}
