@@ -9,7 +9,7 @@ import Plan from "./Plan/Plan";
 import { ActiveStep } from "../../types";
 import AddOns from "./AddOns/AddOns";
 import Summary from "./Summary/Summary";
-import { useEffect, useRef, useState } from "preact/hooks";
+import { useEffect, useState } from "preact/hooks";
 import ThankYou from "./ThankYou/ThankYou";
 
 export interface FormInfo {
@@ -68,8 +68,6 @@ const returnForm = (step: ActiveStep) => {
 export default function Form() {
   const $activeStep = useStore(activeStep);
   const form = returnForm($activeStep);
-  const firstUpdate = useRef(true);
-
   // Pre-rendered, so can't use window.innerWidth here
   const [width, setWidth] = useState(1024);
 
@@ -77,19 +75,16 @@ export default function Form() {
     setWidth(window.innerWidth);
   };
 
+  // Run only once
   useEffect(() => {
-    // https://stackoverflow.com/a/53254028
-    // Manually update width only on the first render
-    // Event handler takes care of the rest on other renders
-    if (firstUpdate.current) {
-      handleResize();
-      firstUpdate.current = false;
-    }
+    // Set width manually first
+    handleResize();
+    // Leave the rest to the event listener
     window.addEventListener("resize", handleResize);
     return () => {
       window.removeEventListener("resize", handleResize);
     };
-  });
+  }, []);
 
   let mainContent;
   if (width >= 1024) {
@@ -99,6 +94,7 @@ export default function Form() {
     } else {
       justify = "justify-between";
     }
+
     mainContent = (
       <div class={`col-span-2 h-full flex flex-col ${justify} px-16`}>
         <FormLayout info={form.info}>{form.component}</FormLayout>
