@@ -40,7 +40,7 @@ export default function Summary() {
         <p class="text-sm text-cool-gray">{`Total (per ${
           $billing === Billing.Monthly ? "month" : "year"
         })`}</p>
-        <p class="text-purplish-blue font-bold lg:text-xl">{`+${getTotalPrice()}`}</p>
+        <p class="text-purplish-blue font-bold lg:text-xl">{getTotalPrice()}</p>
       </div>
     </div>
   );
