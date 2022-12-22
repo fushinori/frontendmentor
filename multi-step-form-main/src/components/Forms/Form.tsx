@@ -10,6 +10,7 @@ import { ActiveStep } from "../../types";
 import AddOns from "./AddOns/AddOns";
 import Summary from "./Summary/Summary";
 import { useEffect, useRef, useState } from "preact/hooks";
+import ThankYou from "./ThankYou/ThankYou";
 
 export interface FormInfo {
   title: string;
@@ -49,6 +50,14 @@ const formSteps: CompleteForm[] = [
       description: "Double-check everything looks OK before confirming.",
     },
     component: <Summary />,
+  },
+  {
+    info: {
+      title: "Thank you!",
+      description:
+        "Thanks for confirming your subscription! We hope you have fun using our platform. If you ever need support, please feel free to email us at support@loremgaming.com.",
+    },
+    component: <ThankYou />,
   },
 ];
 
