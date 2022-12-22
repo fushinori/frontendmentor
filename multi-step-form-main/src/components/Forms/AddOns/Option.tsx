@@ -88,7 +88,11 @@ export default function Option({ addOn }: Props) {
         onBlur={handleBlur}
       >
         {isAddOnAdded(addOn) && (
-          <img src="/icon-checkmark.svg" class="" aria-hidden="true" />
+          <img
+            src="/icon-checkmark.svg"
+            class="lg:scale-110"
+            aria-hidden="true"
+          />
         )}
         <span class="sr-only">{`${
           isAddOnAdded(addOn) ? "Remove" : "Add"
