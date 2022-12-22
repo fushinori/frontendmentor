@@ -1,6 +1,6 @@
 import { useStore } from "@nanostores/preact";
 import { ActiveStep } from "../../types";
-import { activeStep } from "../store";
+import { activeStep, submitted } from "../store";
 import Button from "./Button";
 
 export default function Strip() {
@@ -32,6 +32,11 @@ export default function Strip() {
     activeStep.set($activeStep + 1);
   };
 
+  const handleConfirm = () => {
+    activeStep.set($activeStep + 1);
+    submitted.set(true);
+  };
+
   return (
     <div class={`flex ${flexDirection} justify-between w-full bg-white p-4`}>
       {$activeStep > ActiveStep.Info && (
@@ -41,7 +46,9 @@ export default function Strip() {
       {$activeStep > ActiveStep.Info && $activeStep != ActiveStep.Summary && (
         <Button type="next" handleClick={handleNext} />
       )}
-      {$activeStep === ActiveStep.Summary && <Button type="confirm" />}
+      {$activeStep === ActiveStep.Summary && (
+        <Button type="confirm" handleClick={handleConfirm} />
+      )}
     </div>
   );
 }
