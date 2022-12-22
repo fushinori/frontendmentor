@@ -13,6 +13,8 @@ export default function FormLayout({ info, children }: Props) {
 
   let styles =
     "absolute flex flex-col gap-2 bg-white mx-4 px-6 rounded-lg top-24 shadow-xl shadow-[rgba(0,0,0,0.05)]";
+
+  styles += " lg:static lg:shadow-none lg:px-0 ";
   if ($submitted) {
     styles += " items-center text-center py-20 leading-relaxed";
   } else {
@@ -22,10 +24,13 @@ export default function FormLayout({ info, children }: Props) {
   return (
     <section class={styles} aria-labelledby="form-title">
       {$submitted && children}
-      <h2 id="form-title" class="text-2xl font-bold text-marine-blue">
+      <h2
+        id="form-title"
+        class="text-2xl font-bold text-marine-blue lg:text-3xl lg:mb-1"
+      >
         {info.title}
       </h2>
-      <p class="text-cool-gray mb-3">{info.description}</p>
+      <p class="text-cool-gray mb-3 lg:mb-6">{info.description}</p>
       {!$submitted && children}
     </section>
   );

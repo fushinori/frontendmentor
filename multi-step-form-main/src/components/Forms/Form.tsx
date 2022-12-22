@@ -71,7 +71,7 @@ export default function Form() {
   const firstUpdate = useRef(true);
 
   // Pre-rendered, so can't use window.innerWidth here
-  const [width, setWidth] = useState(0);
+  const [width, setWidth] = useState(1024);
 
   const handleResize = () => {
     setWidth(window.innerWidth);
@@ -94,7 +94,7 @@ export default function Form() {
   let mainContent;
   if (width >= 1024) {
     mainContent = (
-      <div>
+      <div class="col-span-2 h-full flex flex-col justify-between px-16">
         <FormLayout info={form.info}>{form.component}</FormLayout>
         {$activeStep !== ActiveStep.Done && <Strip />}
       </div>
@@ -111,7 +111,7 @@ export default function Form() {
   return (
     <main
       class="relative flex flex-col justify-between items-center min-h-screen
-      lg:static lg:grid lg:grid-cols-3"
+      lg:static lg:grid lg:grid-cols-3 lg:max-w-5xl lg:bg-white lg:min-h-[37.5rem] lg:rounded-xl lg:shadow-xl lg:shadow-[rgba(0,0,0,0.05)] lg:p-4 lg:gap-0"
       aria-labelledby="main-title"
     >
       <h1 id="main-title" class="sr-only">

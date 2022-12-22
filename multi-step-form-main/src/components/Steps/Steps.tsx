@@ -7,15 +7,15 @@ export default function Steps() {
   return (
     <>
       {/* Mobile */}
-      <aside class="bg-no-repeat bg-cover w-full bg-sidebar-mobile flex gap-4 justify-center pt-8 pb-28 h-max lg:hidden">
+      <aside class="bg-no-repeat bg-cover w-full bg-sidebar-mobile flex gap-4 justify-center pt-8 pb-28 lg:hidden">
         {steps.map((i) => (
           <StepNumber key={i} stepNumber={i} />
         ))}
       </aside>
       {/* Desktop */}
-      <aside class="hidden lg:block bg-no-repeat bg-sidebar-desktop p-8 rounded-lg">
+      <aside class="hidden lg:block bg-no-repeat bg-sidebar-desktop p-8 rounded-lg h-full">
         {steps.map((i) => (
-          <div key={i} class="flex items-center gap-4 mb-6">
+          <div key={i} class="flex items-center gap-6 mb-8">
             <StepNumber stepNumber={i} />
             <div class="uppercase">
               <p class="text-xs text-light-gray">Step {i}</p>

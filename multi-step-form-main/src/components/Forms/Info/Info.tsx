@@ -61,7 +61,7 @@ const Input = ({ name, register, errors }: Props) => {
   }
 
   let inputStyles =
-    "outline-none border-[1px] py-2 px-4 rounded-[0.2rem] w-full placeholder:font-medium focus:border-purplish-blue";
+    "outline-none border-[1px] py-2 px-4 rounded-[0.2rem] lg:py-3 lg:rounded-[0.4rem] lg:mb-2 w-full placeholder:font-medium focus:border-purplish-blue";
 
   if (errors[name]) {
     inputStyles += " border-strawberry-red";
@@ -78,13 +78,13 @@ const Input = ({ name, register, errors }: Props) => {
   };
 
   return (
-    <div class="flex flex-col gap-1">
+    <div class="flex flex-col gap-1 lg:gap-2">
       <div class="flex justify-between">
-        <label class="text-xs text-marine-blue" for={name}>
+        <label class="text-xs text-marine-blue lg:text-sm" for={name}>
           {label}
         </label>
         {errors[name]?.type === "required" && (
-          <p class="text-xs text-strawberry-red font-bold">
+          <p class="text-xs text-strawberry-red font-bold lg:text-sm">
             This field is required
           </p>
         )}
