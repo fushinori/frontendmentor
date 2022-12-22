@@ -38,7 +38,9 @@ export default function Strip() {
   };
 
   return (
-    <div class={`flex ${flexDirection} justify-between w-full bg-white p-4`}>
+    <div
+      class={`flex ${flexDirection} justify-between w-full bg-white p-4 lg:px-0`}
+    >
       {$activeStep > ActiveStep.Info && (
         <Button type="previous" handleClick={handlePrevious} />
       )}

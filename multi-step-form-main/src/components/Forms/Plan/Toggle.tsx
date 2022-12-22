@@ -2,7 +2,11 @@ import { useStore } from "@nanostores/preact";
 import { Billing } from "../../../types";
 import { billing } from "../../store";
 
-export default function Toggle() {
+interface Props {
+  extraStyles?: string;
+}
+
+export default function Toggle({ extraStyles }: Props) {
   const $billing = useStore(billing);
 
   const handleClick = () => {
@@ -13,8 +17,15 @@ export default function Toggle() {
   if ($billing === Billing.Yearly) {
     toggleStyles += " translate-x-5";
   }
+
+  let containerStyles =
+    "flex justify-center gap-6 bg-light-blue bg-opacity-[0.15] rounded-md p-4";
+  if (extraStyles) {
+    containerStyles += ` ${extraStyles}`;
+  }
+
   return (
-    <div class="flex justify-center gap-6 bg-light-blue bg-opacity-10 rounded-md p-4">
+    <div class={containerStyles}>
       {returnParagraph(Billing.Monthly)}
       <button class="bg-marine-blue w-10 rounded-3xl" onClick={handleClick}>
         <div class={toggleStyles} />

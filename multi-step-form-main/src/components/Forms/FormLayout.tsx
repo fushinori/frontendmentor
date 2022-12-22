@@ -12,11 +12,11 @@ export default function FormLayout({ info, children }: Props) {
   const $submitted = useStore(submitted);
 
   let styles =
-    "absolute flex flex-col gap-2 bg-white mx-4 px-6 rounded-lg top-24 shadow-xl shadow-[rgba(0,0,0,0.05)]";
+    "absolute flex flex-col gap-2 bg-white mx-4 lg:mx-0 px-6 rounded-lg top-24 shadow-xl shadow-[rgba(0,0,0,0.05)]";
 
   styles += " lg:static lg:shadow-none lg:px-0 ";
   if ($submitted) {
-    styles += " items-center text-center py-20 leading-relaxed";
+    styles += " items-center text-center py-20 leading-relaxed lg:px-10";
   } else {
     styles += " py-8";
   }

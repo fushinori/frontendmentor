@@ -7,22 +7,24 @@ interface Props {
 export default function Button({ type, form, handleClick }: Props) {
   let text;
   let styles =
-    "text-sm font-medium py-2 px-4 rounded-[0.2rem] lg:text-base lg:rounded-lg lg:py-3 lg:px-7";
+    "text-sm font-medium py-2 px-4 rounded-[0.2rem] lg:text-base lg:rounded-lg outline-none";
 
   switch (type) {
     case "next":
       text = "Next Step";
-      styles += " bg-marine-blue text-white hover:bg-opacity-80";
+      styles +=
+        " bg-marine-blue text-white hover:bg-opacity-80 lg:py-3 lg:px-7 focus:bg-opacity-80";
       break;
 
     case "previous":
       text = "Go Back";
-      styles += " text-cool-gray hover:text-marine-blue";
+      styles += " text-cool-gray hover:text-marine-blue focus:text-marine-blue";
       break;
 
     case "confirm":
       text = "Confirm";
-      styles += " bg-purplish-blue text-white hover:bg-opacity-80";
+      styles +=
+        " bg-purplish-blue text-white hover:bg-opacity-80 lg:py-3 lg:px-7 focus:bg-opacity-80";
       break;
 
     default:

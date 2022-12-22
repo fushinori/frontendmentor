@@ -40,13 +40,13 @@ export default function Card({ cardPlan }: Props) {
 
   return (
     <div
-      class={`flex gap-4 ${extraStyles} outline-none border-[1px] rounded-lg p-4 focus:border-purplish-blue hover:border-purplish-blue cursor-pointer transition-colors duration-300`}
+      class={`flex lg:flex-col gap-4 lg:gap-10 lg:pr-12 ${extraStyles} outline-none border-[1px] rounded-lg p-4 focus:border-purplish-blue hover:border-purplish-blue cursor-pointer transition-colors duration-300`}
       tabIndex={0}
       onClick={handleClick}
       onKeyDown={handleKeyDown}
       ref={ref}
     >
-      <div class="w-1/6">
+      <div class="w-1/6 lg:w-auto">
         <img
           src={`/icon-${cardPlan.toLowerCase()}.svg`}
           alt=""

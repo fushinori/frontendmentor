@@ -93,8 +93,14 @@ export default function Form() {
 
   let mainContent;
   if (width >= 1024) {
+    let justify;
+    if ($activeStep === ActiveStep.Done) {
+      justify = "justify-center";
+    } else {
+      justify = "justify-between";
+    }
     mainContent = (
-      <div class="col-span-2 h-full flex flex-col justify-between px-16">
+      <div class={`col-span-2 h-full flex flex-col ${justify} px-16`}>
         <FormLayout info={form.info}>{form.component}</FormLayout>
         {$activeStep !== ActiveStep.Done && <Strip />}
       </div>

@@ -16,17 +16,17 @@ export default function Summary() {
   };
 
   return (
-    <div class="flex flex-col gap-4">
+    <div class="flex flex-col gap-4 lg:gap-6">
       {/* Plan and add-ons details */}
-      <div class="p-4 bg-light-blue bg-opacity-10 rounded-md">
+      <div class="p-4 lg:px-6 bg-light-blue bg-opacity-[0.15] rounded-md">
         {/* Plan details */}
-        <div class="flex justify-between items-center">
+        <div class="flex justify-between items-center lg:gap-56">
           {/* Plan name and button to change plan */}
-          <div class="flex flex-col gap-0">
-            <h3 class="text-marine-blue text-sm font-medium">{`${$plan} (${$billing})`}</h3>
+          <div class="flex flex-col">
+            <h3 class="text-marine-blue text-sm lg:text-base font-medium">{`${$plan} (${$billing})`}</h3>
             <LinkButton text="Change" extraInfo="plan" onClick={handleClick} />
           </div>
-          <p class="text-sm text-marine-blue font-bold">
+          <p class="text-sm lg:text-base text-marine-blue font-bold">
             {getPlanPrice($plan, $billing)}
           </p>
         </div>
@@ -40,7 +40,7 @@ export default function Summary() {
         <p class="text-sm text-cool-gray">{`Total (per ${
           $billing === Billing.Monthly ? "month" : "year"
         })`}</p>
-        <p class="text-purplish-blue font-bold">{getTotalPrice()}</p>
+        <p class="text-purplish-blue font-bold lg:text-xl">{`+${getTotalPrice()}`}</p>
       </div>
     </div>
   );

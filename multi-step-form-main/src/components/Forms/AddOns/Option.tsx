@@ -51,9 +51,9 @@ export default function Option({ addOn }: Props) {
   };
 
   let checkBoxStyles =
-    "grid place-items-center w-5 h-5 rounded-[0.25rem] outline-none";
+    "grid place-items-center w-5 h-5 lg:p-1 rounded-[0.25rem] outline-none";
   let optionStyles =
-    "flex items-center gap-4 border-[1px] px-4 py-3 rounded-md hover:border-purplish-blue cursor-pointer transition-[border-color] duration-200";
+    "flex items-center gap-4 lg:gap-6 border-[1px] px-4 py-3 lg:px-6 lg:py-4 rounded-md hover:border-purplish-blue cursor-pointer transition-[border-color] duration-200";
   if (isAddOnAdded(addOn)) {
     checkBoxStyles += " bg-purplish-blue";
     optionStyles += " bg-pastel-blue bg-opacity-10 border-purplish-blue";
@@ -66,6 +66,7 @@ export default function Option({ addOn }: Props) {
 
   const handleFocus = () => {
     if (ref.current) {
+      ref.current.classList.remove("border-light-gray");
       ref.current.classList.add("border-purplish-blue");
     }
   };
@@ -73,6 +74,7 @@ export default function Option({ addOn }: Props) {
   const handleBlur = () => {
     if (ref.current && !isAddOnAdded(addOn)) {
       ref.current.classList.remove("border-purplish-blue");
+      ref.current.classList.add("border-light-gray");
     }
   };
 
@@ -86,18 +88,20 @@ export default function Option({ addOn }: Props) {
         onBlur={handleBlur}
       >
         {isAddOnAdded(addOn) && (
-          <img src="/icon-checkmark.svg" aria-hidden="true" />
+          <img src="/icon-checkmark.svg" class="" aria-hidden="true" />
         )}
         <span class="sr-only">{`${
           isAddOnAdded(addOn) ? "Remove" : "Add"
         } ${addOn} add-on`}</span>
       </button>
-      <div class="flex justify-between items-center w-full">
+      <div class="flex justify-between items-center w-full lg:gap-28">
         <div>
-          <h3 class="text-marine-blue font-medium text-sm">{addOn}</h3>
-          <p class="text-cool-gray text-xs">{description}</p>
+          <h3 class="text-marine-blue font-medium text-sm lg:text-base">
+            {addOn}
+          </h3>
+          <p class="text-cool-gray text-xs lg:text-sm">{description}</p>
         </div>
-        <p class="text-xs text-purplish-blue">{price}</p>
+        <p class="text-xs lg:text-sm text-purplish-blue">{price}</p>
       </div>
     </div>
   );

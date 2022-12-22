@@ -11,7 +11,7 @@ export default function AddOnInfo({ addOn }: Props) {
   const $billing = useStore(billing);
   const price = getAddOnPrice(addOn, $billing);
   return (
-    <div class="flex justify-between mb-2">
+    <div class="flex justify-between mb-2 lg:mb-4">
       <p class="text-sm text-cool-gray">{addOn}</p>
       <p class="text-sm text-marine-blue">{`+${price}`}</p>
     </div>
