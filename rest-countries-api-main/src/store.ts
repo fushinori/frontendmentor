@@ -11,13 +11,4 @@ const prefersDarkTheme = () => {
   return theme === "dark";
 };
 
-const syncTheme = () => {
-  // Just return during SSR
-  if (!browser) return;
-  dark.subscribe((isDark) =>
-    localStorage.setItem("theme", isDark ? "dark" : "light")
-  );
-};
-
 export const dark = writable(prefersDarkTheme());
-syncTheme();
