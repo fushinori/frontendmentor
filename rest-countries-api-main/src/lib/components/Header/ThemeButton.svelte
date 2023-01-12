@@ -10,7 +10,7 @@
   export const toggleTheme = (isDark: boolean) => {
     // Just return during SSR
     if (!browser) return;
-    localStorage.setItem("theme", isDark ? "dark" : "light");
+    localStorage.setItem("theme", isDark ? "light" : "dark");
     document.documentElement.classList.toggle("dark");
   };
 
