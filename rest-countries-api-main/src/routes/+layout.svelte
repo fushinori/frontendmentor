@@ -1,12 +1,23 @@
 <script>
   import "../styles.css";
-  import { dark } from "../store";
   import Header from "$lib/components/Header/Header.svelte";
 </script>
 
-<div class:dark={$dark}>
-  <main class="dark:bg-dark-blue-700 min-h-screen">
-    <Header />
-    <slot />
-  </main>
-</div>
+<!-- Add to head to prevent FOUC -->
+<svelte:head>
+  <script>
+    if (
+      localStorage.theme === "dark" ||
+      (!("theme" in localStorage) &&
+        window.matchMedia("(prefers-color-scheme: dark)").matches)
+    ) {
+      document.documentElement.classList.add("dark");
+    } else {
+      document.documentElement.classList.remove("dark");
+    }
+  </script>
+</svelte:head>
+<main class="dark:bg-dark-blue-700 min-h-screen">
+  <Header />
+  <slot />
+</main>
