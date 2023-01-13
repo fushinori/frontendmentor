@@ -11,6 +11,7 @@
     // Just return during SSR
     if (!browser) return;
     localStorage.setItem("theme", isDark ? "light" : "dark");
+    dark.update((theme) => !theme);
     document.documentElement.classList.toggle("dark");
   };
 

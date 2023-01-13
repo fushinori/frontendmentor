@@ -1,4 +1,4 @@
-<script>
+<script lang="ts">
   import ThemeButton from "./ThemeButton.svelte";
 </script>
 
