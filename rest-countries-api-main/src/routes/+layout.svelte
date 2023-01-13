@@ -1,4 +1,4 @@
-<script>
+<script lang="ts">
   import "../styles.css";
   import Header from "$lib/components/Header/Header.svelte";
 </script>
@@ -17,7 +17,7 @@
     }
   </script>
 </svelte:head>
-<main class="dark:bg-dark-blue-700 min-h-screen">
-  <Header />
+<Header />
+<main class="">
   <slot />
 </main>
