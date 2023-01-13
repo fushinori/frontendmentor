@@ -1,5 +1,7 @@
-import { writable } from "svelte/store";
+import { derived, writable } from "svelte/store";
 import { browser } from "$app/environment";
+import lightArrow from "$lib/assets/arrow-light.svg";
+import darkArrow from "$lib/assets/arrow-dark.svg";
 
 const prefersDarkTheme = () => {
   // Just return during SSR
@@ -12,3 +14,6 @@ const prefersDarkTheme = () => {
 };
 
 export const dark = writable(prefersDarkTheme());
+export const arrow = derived(dark, ($isDark) =>
+  $isDark ? lightArrow : darkArrow
+);
