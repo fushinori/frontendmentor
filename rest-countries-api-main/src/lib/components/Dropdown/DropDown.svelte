@@ -8,7 +8,8 @@
 
   export let title: string;
   export let options: string[];
-  export let src: string;
+  export let darkSrc: string;
+  export let lightSrc: string;
   export let handleClick: (e: CustomEvent) => void;
 </script>
 
@@ -21,9 +22,19 @@
   >
     {title}
     <img
-      {src}
+      src={lightSrc}
       alt=""
-      class={open ? "transition-transform rotate-180" : "transition-transform"}
+      class={open
+        ? "transition-transform rotate-180 dark:hidden block"
+        : "transition-transform dark:hidden block"}
+      aria-hidden="true"
+    />
+    <img
+      src={darkSrc}
+      alt=""
+      class={open
+        ? "transition-transform rotate-180 hidden dark:block"
+        : "transition-transform hidden dark:block"}
       aria-hidden="true"
     />
   </MenuButton>

@@ -4,8 +4,11 @@
   import CountryCard from "$lib/components/CountryCard.svelte";
   import DropDown from "$lib/components/Dropdown/DropDown.svelte";
   import SearchBar from "$lib/components/SearchBar/SearchBar.svelte";
+
+  import lightArrow from "$lib/assets/arrow-light.svg";
+  import darkArrow from "$lib/assets/arrow-dark.svg";
   import type { Region } from "$lib/types";
-  import { arrow, region, country } from "$lib/store";
+  import { region, country } from "$lib/store";
   import type { PageData } from "./$types";
 
   export let data: PageData;
@@ -51,7 +54,8 @@
   $: dropdownData = {
     title: "Filter by Region",
     options: ["All", "Africa", "Americas", "Asia", "Europe", "Oceania"],
-    src: $arrow,
+    lightSrc: darkArrow,
+    darkSrc: lightArrow,
     handleClick: handleClick,
   };
 </script>
