@@ -1,5 +1,5 @@
 <script lang="ts">
-  import { dark } from "../../../store";
+  import { dark } from "$lib/store";
   import lightIcon from "$lib/assets/light-mode.svg";
   import darkIcon from "$lib/assets/dark-mode.svg";
   import { browser } from "$app/environment";
