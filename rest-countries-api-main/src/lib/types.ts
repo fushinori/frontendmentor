@@ -3,7 +3,7 @@ export interface MinimalCountryInfo {
   flag: string;
   population: number;
   region: string;
-  capital: string;
+  capital: string[];
 }
 
 interface Name {
@@ -24,4 +24,10 @@ export interface MinimalCountryResponse {
   population: number;
 }
 
-export type Region = "Africa" | "Americas" | "Asia" | "Europe" | "Oceania";
+export type Region =
+  | "Africa"
+  | "Americas"
+  | "Asia"
+  | "Europe"
+  | "Oceania"
+  | "All";
