@@ -1,7 +1,5 @@
-import { derived, writable } from "svelte/store";
+import { writable } from "svelte/store";
 import { browser } from "$app/environment";
-import lightArrow from "$lib/assets/arrow-light.svg";
-import darkArrow from "$lib/assets/arrow-dark.svg";
 import type { Region } from "$lib/types";
 
 const prefersDarkTheme = () => {
@@ -15,8 +13,5 @@ const prefersDarkTheme = () => {
 };
 
 export const dark = writable(prefersDarkTheme());
-export const arrow = derived(dark, ($isDark) =>
-  $isDark ? lightArrow : darkArrow
-);
 export const region = writable<Region>("All");
 export const country = writable("");
