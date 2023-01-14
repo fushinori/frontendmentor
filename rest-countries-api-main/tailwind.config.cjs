@@ -11,7 +11,9 @@ module.exports = {
       gray: {
         100: "hsl(0, 0%, 98%)",
         700: "hsl(0, 0%, 52%)",
+        900: "rgb(0 0 0 / 0.05)",
       },
+      cyan: "#67e8f9",
       white: "hsl(0, 0%, 100%)",
     },
     extend: {
@@ -23,6 +25,10 @@ module.exports = {
       },
       animation: {
         fade: "fade 300ms ease-in",
+      },
+      backgroundImage: {
+        "light-search": "url('$lib/assets/search-light.svg')",
+        "dark-search": "url('$lib/assets/search-dark.svg')",
       },
     },
   },
