@@ -3,7 +3,7 @@ import type { PageLoad } from "./$types";
 
 export const load = (async ({ fetch }) => {
   const res = await fetch(
-    "https://restcountries.com/v3.1/all?fields=name,flags,region,capital,population"
+    "https://restcountries.com/v3.1/all?fields=name,flags,region,capital,population,cca2"
   );
   if (!res.ok) {
     throw new Error(`HTTP Error: ${res.status}`);
@@ -17,6 +17,7 @@ export const load = (async ({ fetch }) => {
       region: country["region"],
       capital: country["capital"],
       population: country["population"],
+      cca2: country["cca2"],
     });
   }
 

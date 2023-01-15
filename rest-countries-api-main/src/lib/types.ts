@@ -4,6 +4,7 @@ export interface MinimalCountryInfo {
   population: number;
   region: string;
   capital: string[];
+  cca2: string;
 }
 
 interface Name {
@@ -22,6 +23,7 @@ export interface MinimalCountryResponse {
   region: string;
   capital: string[];
   population: number;
+  cca2: string;
 }
 
 export type Region =
