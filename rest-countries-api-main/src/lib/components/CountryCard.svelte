@@ -4,7 +4,7 @@
   export let country: MinimalCountryInfo;
 </script>
 
-<a href="/country/{country.cca2}">
+<a href="/country/{country.cca3}">
   <article
     class="grid grid-rows-2 bg-white dark:bg-dark-blue-500 text-dark-blue-100 dark:text-white max-w-[320px] rounded-md shadow-xl"
   >
