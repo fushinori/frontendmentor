@@ -3,7 +3,7 @@ import type { PageLoad } from "./$types";
 
 export const load = (async ({ fetch }) => {
   const res = await fetch(
-    "https://restcountries.com/v3.1/all?fields=name,flags,region,capital,population,cca2"
+    "https://restcountries.com/v3.1/all?fields=name,flags,region,capital,population,cca3"
   );
   if (!res.ok) {
     throw new Error(`HTTP Error: ${res.status}`);
@@ -12,12 +12,12 @@ export const load = (async ({ fetch }) => {
   const countries: MinimalCountryInfo[] = [];
   for (const country of rawCountries) {
     countries.push({
-      name: country["name"]["official"],
+      name: country["name"]["common"],
       flag: country["flags"]["svg"],
       region: country["region"],
       capital: country["capital"],
       population: country["population"],
-      cca2: country["cca2"],
+      cca3: country["cca3"],
     });
   }
 
