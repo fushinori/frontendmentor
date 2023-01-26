@@ -60,6 +60,9 @@
   };
 </script>
 
+<svelte:head>
+  <title>Where in the world?</title>
+</svelte:head>
 <div class="flex flex-col gap-8">
   <SearchBar placeholder="Search for a country..." {handleInput} />
   <DropDown {...dropdownData} />
