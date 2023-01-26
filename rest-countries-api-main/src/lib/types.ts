@@ -4,12 +4,21 @@ export interface MinimalCountryInfo {
   population: number;
   region: string;
   capital: string[];
-  cca2: string;
+  cca3: string;
 }
 
-interface Name {
+interface GenericName {
   common: string;
   official: string;
+}
+
+interface Name extends GenericName {
+  nativeName: Record<string, GenericName>;
+}
+
+interface Currency {
+  name: string;
+  symbol: string;
 }
 
 interface Flag {
@@ -18,12 +27,21 @@ interface Flag {
 }
 
 export interface MinimalCountryResponse {
-  name: Name;
+  name: GenericName;
   flags: Flag;
   region: string;
   capital: string[];
   population: number;
-  cca2: string;
+  cca3: string;
+}
+
+export interface FullCountryResponse extends MinimalCountryResponse {
+  name: Name;
+  subregion: string;
+  languages: Record<string, string>;
+  tld: string[];
+  currencies: Record<string, Currency>;
+  borders: string[];
 }
 
 export type Region =
