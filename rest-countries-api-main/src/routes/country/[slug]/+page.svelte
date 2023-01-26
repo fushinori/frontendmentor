@@ -41,7 +41,7 @@
   <title>Where in the world: {name}</title>
 </svelte:head>
 <div class="flex flex-col gap-8 mx-2 text-dark-blue-100 dark:text-white">
-  <BackButton href="/" />
+  <BackButton />
   <img src={country.flags.svg} alt={`Flag of ${name}`} />
   <div class="flex flex-col gap-4">
     <h2 class="text-xl font-extrabold">{name}</h2>
