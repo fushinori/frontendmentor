@@ -55,13 +55,15 @@
       <CountryProperty name="Currencies" value={currency} />
       <CountryProperty name="Languages" value={languages} />
     </div>
-    <div>
-      <p class="font-semibold mb-4">Border Countries:</p>
-      <div class="grid grid-cols-3 gap-2">
-        {#each country.borders as border}
-          <CountryButton code={border} name={getBorderName(border)} />
-        {/each}
+    {#if Array.isArray(country.borders) && country.borders.length}
+      <div>
+        <p class="font-semibold mb-4">Border Countries:</p>
+        <div class="grid grid-cols-3 gap-2">
+          {#each country.borders as border}
+            <CountryButton code={border} name={getBorderName(border)} />
+          {/each}
+        </div>
       </div>
-    </div>
+    {/if}
   </div>
 </div>
