@@ -30,6 +30,10 @@ module.exports = {
         "light-search": "url('$lib/assets/search-light.svg')",
         "dark-search": "url('$lib/assets/search-dark.svg')",
       },
+      gridTemplateColumns: {
+        "auto-fit-320": "repeat(auto-fit, minmax(320px, 1fr))",
+        "auto-fit-120": "repeat(auto-fit, minmax(120px, 200px))",
+      },
     },
   },
   plugins: [],
