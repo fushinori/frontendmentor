@@ -40,11 +40,18 @@
 <svelte:head>
   <title>Where in the world: {name}</title>
 </svelte:head>
-<div class="flex flex-col gap-8 mx-2 text-dark-blue-100 dark:text-white">
+<div
+  class="flex flex-col gap-8 mx-2 md:grid md:grid-cols-2 md:items-center text-dark-blue-100 dark:text-white"
+>
   <BackButton />
-  <img src={country.flags.svg} alt={`Flag of ${name}`} />
-  <div class="flex flex-col gap-4">
-    <h2 class="text-xl font-extrabold">{name}</h2>
+  <!-- https://stackoverflow.com/a/43705979 -->
+  <img
+    src={country.flags.svg}
+    alt={`Flag of ${name}`}
+    class="max-w-[400px] self-center w-full"
+  />
+  <div class="flex flex-col gap-4 md:grid md:grid-cols-2 md:gap-8">
+    <h2 class="text-xl font-extrabold md:col-span-full md:text-2xl">{name}</h2>
     <div class="flex flex-col gap-2">
       <CountryProperty name="Native Name" value={nativeName} />
       <CountryProperty
@@ -61,9 +68,9 @@
       <CountryProperty name="Languages" value={languages} />
     </div>
     {#if Array.isArray(country.borders) && country.borders.length}
-      <div>
+      <div class="md:col-span-full">
         <p class="font-semibold mb-4">Border Countries:</p>
-        <div class="grid grid-cols-3 gap-2">
+        <div class="grid grid-cols-auto-fit-120 gap-2">
           {#each country.borders as border}
             <CountryButton code={border} name={getBorderName(border)} />
           {/each}

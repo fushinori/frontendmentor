@@ -64,9 +64,13 @@
   <title>Where in the world?</title>
 </svelte:head>
 <div class="flex flex-col gap-8">
-  <SearchBar placeholder="Search for a country..." {handleInput} />
-  <DropDown {...dropdownData} />
-  <div class="flex flex-col gap-4 items-center">
+  <div class="flex flex-col gap-8 md:flex-row md:gap-0 md:justify-between">
+    <SearchBar placeholder="Search for a country..." {handleInput} />
+    <DropDown {...dropdownData} />
+  </div>
+  <div
+    class="flex flex-col gap-4 items-center md:grid md:gap-8 md:items-stretch md:grid-cols-auto-fit-320"
+  >
     {#each filteredCountries as country}
       <CountryCard {country} />
     {/each}

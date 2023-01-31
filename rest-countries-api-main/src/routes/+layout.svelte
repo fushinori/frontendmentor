@@ -18,6 +18,6 @@
   </script>
 </svelte:head>
 <Header />
-<main class="px-4 mt-6">
+<main class="px-4 mt-6 max-w-[1500px] mx-auto">
   <slot />
 </main>
