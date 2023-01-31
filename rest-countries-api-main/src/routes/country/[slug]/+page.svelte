@@ -50,9 +50,11 @@
     alt={`Flag of ${name}`}
     class="max-w-[400px] self-center w-full"
   />
-  <div class="flex flex-col gap-4 md:grid md:grid-cols-2 md:gap-8">
-    <h2 class="text-xl font-extrabold md:col-span-full md:text-2xl">{name}</h2>
-    <div class="flex flex-col gap-2">
+  <div class="flex flex-col gap-4 md:grid md:grid-cols-2">
+    <h2 class="text-xl font-extrabold md:col-span-full md:text-3xl md:mb-4">
+      {name}
+    </h2>
+    <div class="flex flex-col gap-2 md:mb-12">
       <CountryProperty name="Native Name" value={nativeName} />
       <CountryProperty
         name="Population"
@@ -62,7 +64,7 @@
       <CountryProperty name="Sub region" value={country.subregion} />
       <CountryProperty name={capitalName} value={capitalValue} />
     </div>
-    <div class="flex flex-col gap-2">
+    <div class="flex flex-col gap-2 md:mb-12">
       <CountryProperty name="Top Level Domain" value={tld} />
       <CountryProperty name="Currencies" value={currency} />
       <CountryProperty name="Languages" value={languages} />
@@ -70,7 +72,7 @@
     {#if Array.isArray(country.borders) && country.borders.length}
       <div class="md:col-span-full">
         <p class="font-semibold mb-4">Border Countries:</p>
-        <div class="grid grid-cols-auto-fit-120 gap-2">
+        <div class="grid md:grid-cols-auto-fit-120 grid-cols-auto-fit-80 gap-2">
           {#each country.borders as border}
             <CountryButton code={border} name={getBorderName(border)} />
           {/each}
