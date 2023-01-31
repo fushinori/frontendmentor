@@ -24,21 +24,19 @@
   };
 </script>
 
-<div class="flex">
-  <button
-    class="dark:flex hidden gap-2 font-semibold"
-    on:click={handleClick}
-    bind:this={lightbutton}
-  >
-    <img src={lightIcon} alt="Switch to light mode" />
-    Light mode
-  </button>
-  <button
-    class="flex dark:hidden gap-2 font-semibold"
-    on:click={handleClick}
-    bind:this={darkbutton}
-  >
-    <img src={darkIcon} alt="Switch to dark mode" />
-    Dark mode
-  </button>
-</div>
+<button
+  class="dark:flex items-center hidden gap-2 font-semibold"
+  on:click={handleClick}
+  bind:this={lightbutton}
+>
+  <img src={lightIcon} class="md:w-5" alt="Switch to light mode" />
+  Light mode
+</button>
+<button
+  class="flex items-center dark:hidden gap-2 font-semibold"
+  on:click={handleClick}
+  bind:this={darkbutton}
+>
+  <img src={darkIcon} class="md:w-5" alt="Switch to dark mode" />
+  Dark mode
+</button>
