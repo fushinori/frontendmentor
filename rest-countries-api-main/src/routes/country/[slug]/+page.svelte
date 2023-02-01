@@ -50,7 +50,7 @@
     alt={`Flag of ${name}`}
     class="max-w-[400px] self-center w-full"
   />
-  <div class="flex flex-col gap-4 md:grid md:grid-cols-2">
+  <div class="flex flex-col gap-4 md:grid md:grid-cols-2 md:mt-12">
     <h2 class="text-xl font-extrabold md:col-span-full md:text-3xl md:mb-4">
       {name}
     </h2>
